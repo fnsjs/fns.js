@@ -1,6 +1,6 @@
 /**
  * @name isNull
- * @category Helpers
+ * @category Type Checkers
  * @summary Checks if `value` is `null`.
  *
  * @description

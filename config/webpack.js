@@ -58,7 +58,7 @@ function getOutputConfig() {
     return {
       path: path.join(process.cwd(), 'dist'),
       filename: '[name].js',
-      library: 'dateFns',
+      library: 'fnsJS',
       libraryTarget: 'umd'
     }
   }

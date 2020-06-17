@@ -2,20 +2,20 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import isNull from '.'
+import isObject from '.'
 import lodash from 'lodash'
 import underscore from 'underscore'
 
-suite('isNull', function() {
+suite('isObject', function() {
   benchmark('fns.js', function() {
-    return isNull(null)
+    return isObject({})
   })
 
   benchmark('lodash', function() {
-    return lodash.isNull(null)
+    return lodash.isObject({})
   })
 
   benchmark('underscore', function() {
-    return underscore.isNull(null)
+    return underscore.isObject({})
   })
 })

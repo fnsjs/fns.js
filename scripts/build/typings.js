@@ -19,9 +19,6 @@ const fns = Object.keys(jsDocs)
   .filter(doc => doc.kind === 'function')
   .sort((a, b) => a.title.localeCompare(b.title, 'en-US'))
 
-// const constants = getConstants()
-const constants = ''
-
 const aliases = jsDocs['Types']
 
 generateTypeScriptTypings(fns, aliases)

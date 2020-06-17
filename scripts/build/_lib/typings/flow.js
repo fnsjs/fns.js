@@ -138,7 +138,7 @@ function generateFlowLocaleIndexTyping(locales, localeAliasDeclaration) {
   writeFile('src/locale/index.js.flow', typingFile)
 }
 
-function generateFlowTypings(fns, aliases, locales, constants) {
+function generateFlowTypings(fns, aliases) {
   const aliasDeclarations = aliases.map(getFlowTypeAlias)
   const localeAliasDeclaration = getFlowTypeAlias(
     aliases.find(alias => alias.title === 'Locale')
@@ -158,15 +158,12 @@ function generateFlowTypings(fns, aliases, locales, constants) {
 
   generateFlowFnIndexTyping(
     fns.filter(({ isFPFn }) => !isFPFn),
-    aliasDeclarations,
-    constants
+    aliasDeclarations
   )
   generateFlowFPFnIndexTyping(
     fns.filter(({ isFPFn }) => isFPFn),
-    aliasDeclarations,
-    constants
+    aliasDeclarations
   )
-  generateFlowLocaleIndexTyping(locales, localeAliasDeclaration)
 }
 
 function generateConstantsDeclarations(constants) {

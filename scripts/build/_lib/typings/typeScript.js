@@ -73,19 +73,12 @@ function getExportedTypeScriptTypeAliases(aliases) {
   `
 }
 
-function getTypeScriptDateFnsModuleDefinition(
-  submodule,
-  fns,
-  constantsDefinitions
-) {
+function getTypeScriptDateFnsModuleDefinition(submodule, fns) {
   const moduleName = `date-fns${submodule}`
 
   const definition = formatBlock`
     declare module '${moduleName}' {
-      ${addSeparator(
-        fns.map(getTypeScriptFnDefinition).concat(constantsDefinitions),
-        '\n'
-      )}
+      ${addSeparator(fns.map(getTypeScriptFnDefinition), '\n')}
     }
   `
 
@@ -95,11 +88,7 @@ function getTypeScriptDateFnsModuleDefinition(
   }
 }
 
-function getTypeScriptDateFnsFPModuleDefinition(
-  submodule,
-  fns,
-  constantsDefinitions
-) {
+function getTypeScriptDateFnsFPModuleDefinition(submodule, fns) {
   const moduleName = `date-fns${submodule}/fp`
 
   const fnDefinitions = fns.map(getTypeScriptFPFnDefinition)
@@ -173,23 +162,6 @@ function getTypeScriptFPFnModuleDefinition(submodule, fnSuffix, isDefault, fn) {
   }
 }
 
-function getTypeScriptLocaleIndexModuleDefinition(submodule, locales) {
-  const moduleName = `date-fns${submodule}/locale`
-
-  const localesDefinitions = locales.map(getTypeScriptLocaleDefinition)
-
-  const definition = formatBlock`
-    declare module '${moduleName}' {
-      ${addSeparator(localesDefinitions, '\n')}
-    }
-  `
-
-  return {
-    name: moduleName,
-    definition
-  }
-}
-
 function getTypeScriptLocaleDefinition(locale) {
   const { name } = locale
 
@@ -246,24 +218,11 @@ function generateTypescriptFPFnTyping(fn) {
   writeFile(`./src/fp/${fn.title}/index.d.ts`, typingFile)
 }
 
-function generateTypescriptLocaleTyping(locale) {
-  const typingFile = formatTypeScriptFile`
-    import {${locale.name}} from 'date-fns/locale'
-    export default ${locale.name}
-  `
-  writeFile(`src/locale/${locale.code}/index.d.ts`, typingFile)
-}
-
-function generateTypeScriptTypings(fns, aliases, locales, constants) {
+function generateTypeScriptTypings(fns, aliases) {
   const nonFPFns = fns.filter(fn => !fn.isFPFn)
   const fpFns = fns.filter(fn => fn.isFPFn)
-  const constantsDefinitions = constants.map(
-    c => `const ${c.name}: ${c.type.names.join(' | ')}`
-  )
 
-  const moduleDefinitions = [
-    getTypeScriptDateFnsModuleDefinition('', nonFPFns, constantsDefinitions)
-  ]
+  const moduleDefinitions = [getTypeScriptDateFnsModuleDefinition('', nonFPFns)]
     .concat(nonFPFns.map(getTypeScriptFnModuleDefinition.bind(null, '', '')))
     .concat(
       nonFPFns.map(getTypeScriptFnModuleDefinition.bind(null, '', '/index'))
@@ -274,7 +233,7 @@ function generateTypeScriptTypings(fns, aliases, locales, constants) {
     .map(module => module.definition)
 
   const fpModuleDefinitions = [
-    getTypeScriptDateFnsFPModuleDefinition('', fpFns, constantsDefinitions)
+    getTypeScriptDateFnsFPModuleDefinition('', fpFns)
   ]
     .concat(
       fpFns.map(getTypeScriptFPFnModuleDefinition.bind(null, '', '', false))
@@ -292,7 +251,7 @@ function generateTypeScriptTypings(fns, aliases, locales, constants) {
     .map(module => module.definition)
 
   const esmModuleDefinitions = [
-    getTypeScriptDateFnsModuleDefinition('/esm', nonFPFns, constantsDefinitions)
+    getTypeScriptDateFnsModuleDefinition('/esm', nonFPFns)
   ]
     .concat(
       nonFPFns.map(getTypeScriptFnModuleDefinition.bind(null, '/esm', ''))
@@ -308,7 +267,7 @@ function generateTypeScriptTypings(fns, aliases, locales, constants) {
     .map(module => module.definition)
 
   const esmFPModuleDefinitions = [
-    getTypeScriptDateFnsFPModuleDefinition('/esm', fpFns, constantsDefinitions)
+    getTypeScriptDateFnsFPModuleDefinition('/esm', fpFns)
   ]
     .concat(
       fpFns.map(getTypeScriptFPFnModuleDefinition.bind(null, '/esm', '', true))
@@ -329,57 +288,9 @@ function generateTypeScriptTypings(fns, aliases, locales, constants) {
 
   const exportedAliasDefinitions = [getExportedTypeScriptTypeAliases(aliases)]
 
-  const localeModuleDefinitions = [
-    getTypeScriptLocaleIndexModuleDefinition('', locales)
-  ]
-    .concat(
-      locales.map(getTypeScriptLocaleModuleDefinition.bind(null, '', '', false))
-    )
-    .concat(
-      locales.map(
-        getTypeScriptLocaleModuleDefinition.bind(null, '', '/index', false)
-      )
-    )
-    .concat(
-      locales.map(
-        getTypeScriptLocaleModuleDefinition.bind(null, '', '/index.js', false)
-      )
-    )
-    .map(module => module.definition)
-
-  const esmLocaleModuleDefinitions = [
-    getTypeScriptLocaleIndexModuleDefinition('/esm', locales)
-  ]
-    .concat(
-      locales.map(
-        getTypeScriptLocaleModuleDefinition.bind(null, '/esm', '', true)
-      )
-    )
-    .concat(
-      locales.map(
-        getTypeScriptLocaleModuleDefinition.bind(null, '/esm', '/index', true)
-      )
-    )
-    .concat(
-      locales.map(
-        getTypeScriptLocaleModuleDefinition.bind(
-          null,
-          '/esm',
-          '/index.js',
-          true
-        )
-      )
-    )
-    .map(module => module.definition)
-
   const globalInterfaceDefinition = formatBlock`
     interface dateFns {
-      ${addSeparator(
-        nonFPFns
-          .map(getTypeScriptInterfaceDefinition)
-          .concat(constants.map(c => `${c.name}: ${c.type.names.join(' | ')}`)),
-        '\n'
-      )}
+      ${addSeparator(nonFPFns.map(getTypeScriptInterfaceDefinition), '\n')}
     }
   `
 
@@ -433,10 +344,6 @@ function generateTypeScriptTypings(fns, aliases, locales, constants) {
     } else {
       generateTypescriptFnTyping(fn)
     }
-  })
-
-  locales.forEach(locale => {
-    generateTypescriptLocaleTyping(locale)
   })
 }
 

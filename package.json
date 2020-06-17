@@ -22,7 +22,6 @@
     "test": "karma start config/karma.js",
     "lint": "eslint .",
     "lint-types": "eslint --config=.ts-eslintrc.js typings.d.ts",
-    "locale-snapshots": "env TZ=utc babel-node ./scripts/build/localeSnapshots/index.js",
     "benchmark": "env TEST_BENCHMARK=true yarn test --single-run",
     "stats": "cloc . --exclude-dir=node_modules,tmp,.git"
   },
@@ -37,7 +36,9 @@
       "git add"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "^1.10.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
@@ -54,6 +55,7 @@
     "babel-loader": "8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-power-assert": "^3.0.0",
+    "benchmark": "^2.1.4",
     "cloc": "^2.2.0",
     "coveralls": "^3.0.6",
     "eslint": "^5.16.0",
