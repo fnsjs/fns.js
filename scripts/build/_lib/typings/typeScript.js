@@ -67,14 +67,14 @@ function getExportedTypeScriptTypeAlias(type) {
 
 function getExportedTypeScriptTypeAliases(aliases) {
   return formatBlock`
-    declare module 'date-fns' {
+    declare module 'fns.js' {
       ${addSeparator(aliases.map(getExportedTypeScriptTypeAlias), '\n')}
     }
   `
 }
 
 function getTypeScriptDateFnsModuleDefinition(submodule, fns) {
-  const moduleName = `date-fns${submodule}`
+  const moduleName = `fns.js${submodule}`
 
   const definition = formatBlock`
     declare module '${moduleName}' {
@@ -89,7 +89,7 @@ function getTypeScriptDateFnsModuleDefinition(submodule, fns) {
 }
 
 function getTypeScriptDateFnsFPModuleDefinition(submodule, fns) {
-  const moduleName = `date-fns${submodule}/fp`
+  const moduleName = `fns.js${submodule}/fp`
 
   const fnDefinitions = fns.map(getTypeScriptFPFnDefinition)
 
@@ -107,11 +107,11 @@ function getTypeScriptDateFnsFPModuleDefinition(submodule, fns) {
 
 function getTypeScriptFnModuleDefinition(submodule, fnSuffix, fn) {
   const name = fn.content.name
-  const moduleName = `date-fns${submodule}/${name}${fnSuffix}`
+  const moduleName = `fns.js${submodule}/${name}${fnSuffix}`
 
   const definition = formatBlock`
     declare module '${moduleName}' {
-      import {${name}} from 'date-fns${submodule}'
+      import {${name}} from 'fns.js${submodule}'
       export default ${name}
     }
   `
@@ -147,11 +147,11 @@ function getTypeScriptFPFnDefinition(fn) {
 
 function getTypeScriptFPFnModuleDefinition(submodule, fnSuffix, isDefault, fn) {
   const { title } = fn
-  const moduleName = `date-fns${submodule}/fp/${title}${fnSuffix}`
+  const moduleName = `fns.js${submodule}/fp/${title}${fnSuffix}`
 
   const definition = formatBlock`
     declare module '${moduleName}' {
-      import {${title}} from 'date-fns${submodule}/fp'
+      import {${title}} from 'fns.js${submodule}/fp'
       export default ${title}
     }
   `
@@ -178,12 +178,12 @@ function getTypeScriptLocaleModuleDefinition(
   locale
 ) {
   const code = locale.code
-  const moduleName = `date-fns${submodule}/locale/${code}${localeSuffix}`
+  const moduleName = `fns.js${submodule}/locale/${code}${localeSuffix}`
   const { name } = locale
 
   const definition = formatBlock`
     declare module '${moduleName}' {
-      import {${name}} from 'date-fns${submodule}/locale'
+      import {${name}} from 'fns.js${submodule}/locale'
       export default ${name}
     }
   `
@@ -204,7 +204,7 @@ function getTypeScriptInterfaceDefinition(fn) {
 
 function generateTypescriptFnTyping(fn) {
   const typingFile = formatTypeScriptFile`
-    import {${fn.title}} from 'date-fns'
+    import {${fn.title}} from 'fns.js'
     export default ${fn.title}
   `
   writeFile(`./src/${fn.title}/index.d.ts`, typingFile)
@@ -212,7 +212,7 @@ function generateTypescriptFnTyping(fn) {
 
 function generateTypescriptFPFnTyping(fn) {
   const typingFile = formatTypeScriptFile`
-    import {${fn.title}} from 'date-fns/fp'
+    import {${fn.title}} from 'fns.js/fp'
     export default ${fn.title}
   `
   writeFile(`./src/fp/${fn.title}/index.d.ts`, typingFile)

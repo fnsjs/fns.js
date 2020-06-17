@@ -1,8 +1,6 @@
-import isNull from '../isNull'
-
 /**
  * @name isObject
- * @category Type Checkers
+ * @category Types
  * @summary Checks if `value` is `object`.
  *
  * @description
@@ -23,5 +21,5 @@ import isNull from '../isNull'
  */
 export default function isObject(value) {
   const type = typeof value
-  return !isNull(value) && (type === 'object' || type === 'function')
+  return value !== null && (type === 'object' || type === 'function')
 }

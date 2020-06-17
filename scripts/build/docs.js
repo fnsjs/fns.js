@@ -51,19 +51,7 @@ function generateDocsFromSource() {
         pure
       }
     })
-    .reduce(
-      (array, doc) =>
-        array
-          .concat(generateFnDoc(doc))
-          .concat(
-            doc.pure
-              ? [generateFPFnDoc(doc)].concat(
-                  generateFPFnWithOptionsDoc(doc) || []
-                )
-              : []
-          ),
-      []
-    )
+    .reduce((array, doc) => array.concat(generateFnDoc(doc)).concat([]), [])
 
   return Promise.resolve(docs)
 }
@@ -202,41 +190,6 @@ function generateFnDoc(dirtyDoc) {
   })
 }
 
-function generateFPFnDoc(dirtyDoc) {
-  const doc = cloneDeep(dirtyDoc)
-
-  const isFPFn = true
-  const { urlId, title } = doc
-  const exceptions = doc.content.exceptions.filter(
-    exception => !exception.description.includes('options.')
-  )
-  const params = doc.content.params
-    .filter(param => !param.name.startsWith('options'))
-    .reverse()
-  const args = paramsToTree(params)
-
-  return Object.assign(doc, {
-    isFPFn,
-    args,
-    generatedFrom: title,
-    urlId: `fp/${urlId}`,
-    relatedDocs: Object.assign(
-      { default: urlId, fp: `fp/${urlId}` },
-      withOptions(args) ? { fpWithOptions: `fp/${urlId}WithOptions` } : {}
-    ),
-    usage: generateUsage(title, isFPFn),
-    usageTabs: generateUsageTabs(isFPFn),
-    syntax: generateSyntaxString(title, args, isFPFn),
-
-    content: Object.assign(doc.content, {
-      exceptions,
-      params,
-      examples:
-        'See [FP Guide](https://date-fns.org/docs/FP-Guide) for more information'
-    })
-  })
-}
-
 function generateFPFnWithOptionsDoc(dirtyDoc) {
   const doc = cloneDeep(dirtyDoc)
 
@@ -274,8 +227,7 @@ function generateFPFnWithOptionsDoc(dirtyDoc) {
       id: `${doc.content.id}WithOptions`,
       longname: `${doc.content.longname}WithOptions`,
       name: `${doc.content.name}WithOptions`,
-      examples:
-        'See [FP Guide](https://date-fns.org/docs/FP-Guide) for more information'
+      examples: 'See [FP Guide](https://fnsjs.dev/docs/) for more information'
     })
   })
 }
@@ -296,20 +248,20 @@ function generateUsage(name, isFPFn) {
   let usage = {
     commonjs: {
       title: 'CommonJS',
-      code: `var ${name} = require('date-fns${submodule}/${name}')`
+      code: `var ${name} = require('fns.js${submodule}/${name}')`
     },
 
     es2015: {
       title: 'ES 2015',
-      code: `import ${name} from 'date-fns${submodule}/${name}'`
+      code: `import ${name} from 'fns.js${submodule}/${name}'`
     },
 
     esm: {
       title: 'ESM',
-      code: `import { ${name} } from 'date-fns${submodule &&
+      code: `import { ${name} } from 'fns.js${submodule &&
         `/esm/${submodule}`}'`,
       text:
-        'See [ECMAScript Modules guide](https://date-fns.org/docs/ECMAScript-Modules) for more information'
+        'See [ECMAScript Modules guide](https://fnsjs.dev/docs/) for more information'
     }
   }
 

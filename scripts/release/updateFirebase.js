@@ -37,7 +37,7 @@ function generateLocale(tag, locale) {
   if (iso639dash2) {
     return {
       code,
-      url: `https://github.com/date-fns/date-fns/tree/${tag}/src/locale/${code}`,
+      url: `https://github.com/fns.js/fns.js/tree/${tag}/src/locale/${code}`,
       name: languageName,
       countries: countries.reduce((acc, country) => {
         if (Object.keys(country.languages).includes(iso639dash2)) {
