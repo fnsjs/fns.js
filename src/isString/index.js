@@ -19,12 +19,12 @@ import getObjectType from '../utils/getObjectType'
  * // => false
  */
 export default function isString(value) {
-  const type = typeof value
+  if (typeof value === 'string') {
+    return true
+  }
   return (
-    type === 'string' ||
-    (type === 'object' &&
-      value != null &&
-      !Array.isArray(value) &&
-      getObjectType(value) === '[object String]')
+    !!value &&
+    typeof value === 'object' &&
+    getObjectType(value) === '[object String]'
   )
 }

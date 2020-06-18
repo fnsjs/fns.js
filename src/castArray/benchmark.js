@@ -4,7 +4,6 @@
 
 import castArray from '.'
 import lodash from 'lodash'
-import underscore from 'underscore'
 
 suite('castArray', function() {
   benchmark('fns.js', function() {

@@ -2,15 +2,15 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import isNull from '.'
+import isObjectLike from '.'
 import lodash from 'lodash'
 
-suite('isNull', function() {
+suite('isObjectLike', function() {
   benchmark('fns.js', function() {
-    return isNull(Object)
+    return isObjectLike([1, 2, 3, 4])
   })
 
   benchmark('lodash', function() {
-    return lodash.isNull(Object)
+    return lodash.isObjectLike([1, 2, 3, 4])
   })
 })

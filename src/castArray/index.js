@@ -17,7 +17,7 @@
  * // => [1]
  */
 export default function castArray(value) {
-  if (value === null || value === undefined) {
+  if (!value) {
     return []
   }
 

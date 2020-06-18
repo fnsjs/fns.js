@@ -1,17 +1,5 @@
 import getObjectType from '../utils/getObjectType'
 
-const hasToStringTag =
-  typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol'
-
-function tryBooleanObject(value) {
-  try {
-    Boolean.prototype.toString.call(value)
-    return true
-  } catch (e) {
-    return false
-  }
-}
-
 /**
  * @name isBoolean
  * @category Types

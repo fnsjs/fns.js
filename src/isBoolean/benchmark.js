@@ -4,7 +4,6 @@
 
 import isBoolean from '.'
 import lodash from 'lodash'
-import underscore from 'underscore'
 
 suite('isBoolean', function() {
   benchmark('fns.js', function() {

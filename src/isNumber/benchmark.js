@@ -2,15 +2,15 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import isNull from '.'
+import isNumber from '.'
 import lodash from 'lodash'
 
-suite('isNull', function() {
+suite('isNumber', function() {
   benchmark('fns.js', function() {
-    return isNull(Object)
+    return isNumber(null)
   })
 
   benchmark('lodash', function() {
-    return lodash.isNull(Object)
+    return lodash.isNumber(null)
   })
 })

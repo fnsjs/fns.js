@@ -2,15 +2,15 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import isNull from '.'
+import isDate from '.'
 import lodash from 'lodash'
 
-suite('isNull', function() {
+suite('isDate', function() {
   benchmark('fns.js', function() {
-    return isNull(Object)
+    return isDate('Thu Jun 18 2020')
   })
 
   benchmark('lodash', function() {
-    return lodash.isNull(Object)
+    return lodash.isDate('Thu Jun 18 2020')
   })
 })
