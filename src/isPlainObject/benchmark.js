@@ -2,15 +2,15 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import isPlainObject from '.'
+import isObject from '.'
 import lodash from 'lodash'
 
-suite('isPlainObject', function() {
+suite('isObject', function() {
   benchmark('fns.js', function() {
-    return isPlainObject({})
+    return isObject({})
   })
 
   benchmark('lodash', function() {
-    return lodash.isObjectLike({})
+    return lodash.isObject({})
   })
 })
