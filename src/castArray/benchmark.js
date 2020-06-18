@@ -8,14 +8,14 @@ import underscore from 'underscore'
 
 suite('castArray', function() {
   benchmark('fns.js', function() {
-    return castArray('hello')
+    return castArray({})
   })
 
   benchmark('lodash', function() {
-    return lodash.castArray('hello')
+    return lodash.castArray({})
   })
 
   benchmark('underscore', function() {
-    return underscore.toArray('hello')
+    return underscore.toArray({})
   })
 })
