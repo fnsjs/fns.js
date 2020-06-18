@@ -31,10 +31,6 @@ function benchmarkJSONReporter() {
           element.lodash = benchmarkResult[fnName]['lodash']
         }
 
-        if (benchmarkResult[fnName]['underscore']) {
-          element.underscore = benchmarkResult[fnName]['underscore']
-        }
-
         benchmarkResultArray.push(element)
       }
     }

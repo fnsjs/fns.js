@@ -8,14 +8,10 @@ import underscore from 'underscore'
 
 suite('isString', function() {
   benchmark('fns.js', function() {
-    return isString('hello')
+    return isString(/x/)
   })
 
   benchmark('lodash', function() {
-    return lodash.isString('hello')
-  })
-
-  benchmark('underscore', function() {
-    return underscore.isString('hello')
+    return lodash.isString(/x/)
   })
 })

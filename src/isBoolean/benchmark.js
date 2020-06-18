@@ -2,16 +2,16 @@
 /* eslint-env mocha */
 /* global suite, benchmark */
 
-import castArray from '.'
+import isBoolean from '.'
 import lodash from 'lodash'
 import underscore from 'underscore'
 
-suite('castArray', function() {
+suite('isBoolean', function() {
   benchmark('fns.js', function() {
-    return castArray({ a: 1 })
+    return isBoolean([])
   })
 
   benchmark('lodash', function() {
-    return lodash.castArray({ a: 1 })
+    return lodash.isBoolean([])
   })
 })
