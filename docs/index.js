@@ -1,5 +1,5 @@
 module.exports = {
-  groups: ['Types', 'Casting'],
+  groups: ['Types', 'Casting', 'Array'],
 
   staticDocs: [],
 
