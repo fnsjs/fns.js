@@ -19,7 +19,7 @@
     }
   },
   "include": [
-    "typings.d.ts"
+    "src"
   ],
   "exclude": [
     "node_modules",

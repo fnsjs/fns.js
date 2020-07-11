@@ -23,7 +23,8 @@
     "lint": "eslint .",
     "lint-types": "eslint --config=.ts-eslintrc.js typings.d.ts",
     "benchmark": "env TEST_BENCHMARK=true yarn test --single-run",
-    "stats": "cloc . --exclude-dir=node_modules,tmp,.git"
+    "stats": "cloc . --exclude-dir=node_modules,tmp,.git",
+    "check-types": "tsc"
   },
   "husky": {
     "hooks": {
@@ -36,10 +37,9 @@
       "git add"
     ]
   },
-  "dependencies": {
-    "underscore": "^1.10.2"
-  },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.10.1",
+    "underscore": "^1.10.2",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
@@ -101,7 +101,7 @@
     "snazzy": "^7.0.0",
     "systemjs": "^0.19.39",
     "systemjs-plugin-babel": "0.0.17",
-    "typescript": "^3.7.2",
+    "typescript": "^3.9.5",
     "webpack": "4",
     "webpack-cli": "^3.1.2",
     "world-countries": "^1.8.1"
