@@ -12,22 +12,15 @@ const path = require('path')
 const prettier = require('./_lib/prettier')
 const listFns = require('../_lib/listFns')
 const listFPFns = require('../_lib/listFPFns')
-const listLocales = require('../_lib/listLocales')
-
-const outdatedLocales = require('../../outdatedLocales.json')
 
 const generatedAutomaticallyMessage =
   "// This file is generated automatically by `scripts/build/indices.js`. Please, don't change it."
 
 const fns = listFns()
 const fpFns = listFPFns()
-const locales = listLocales().filter(
-  ({ code }) => !outdatedLocales.includes(code)
-)
 
 writeFile('src/index.js', generateIndex(fns, false, true))
-// writeFile('src/fp/index.js', generateIndex(fpFns, true, true))
-// writeFile('src/locale/index.js', generateIndex(locales, false, false))
+writeFile('src/fp/index.js', generateIndex(fpFns, true, true))
 
 function writeFile(relativePath, content) {
   return fs.writeFileSync(
@@ -37,13 +30,19 @@ function writeFile(relativePath, content) {
 }
 
 function generateIndex(files, isFP, includeConstants) {
-  const fileLines = files.map(
-    fn =>
-      `export { default as ${fn.name} } from '${fn.path.replace(
-        /\.js$/,
-        ''
-      )}/index.js'`
-  )
+  const fileLines = files
+    .map(
+      fn =>
+        `export { default as ${fn.name} } from '${fn.path.replace(
+          /\.js$/,
+          ''
+        )}/index.js'`
+    )
+    .concat(
+      includeConstants
+        ? `export * from '${isFP ? '..' : '.'}/constants/index.js'`
+        : []
+    )
 
   const indexLines = [generatedAutomaticallyMessage]
     .concat('')

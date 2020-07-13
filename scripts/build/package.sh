@@ -3,7 +3,7 @@
 # The script generates the package in the given directory.
 #
 # It's addition to the build process. The script is used in examples.
-# It also could be used to build fns.js from a git checkout.
+# It also could be used to build date-fns from a git checkout.
 
 set -e
 
@@ -20,10 +20,10 @@ rm -rf "$dir"
 mkdir -p "$dir"
 
 # Traspile CommonJS versions of files
-env TARGET='commonjs' babel src --source-root src --out-dir "$dir" --extensions '.ts' --ignore test.js,benchmark.js --copy-files --quiet
+env TARGET='commonjs' babel src --source-root src --out-dir "$dir" --ignore test.js,benchmark.js --copy-files --quiet
 
 # Traspile ESM versions of files
-env TARGET='esm' babel src --source-root src --out-dir "$dir/esm" --extensions '.ts' --ignore test.js,benchmark.js,package.json --copy-files --quiet
+env TARGET='esm' babel src --source-root src --out-dir "$dir/esm" --ignore test.js,benchmark.js,package.json --copy-files --quiet
 
 # Copy basic files
 for pattern in CHANGELOG.md \

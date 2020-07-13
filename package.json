@@ -1,6 +1,6 @@
 {
   "name": "fns.js",
-  "version": "1.0.0",
+  "version": "DON'T CHANGE; IT'S SET AUTOMATICALLY DURING DEPLOYMENT; ALSO, USE YARN FOR DEVELOPMENT",
   "sideEffects": false,
   "contributors": [
     "Jalal Azimi <jalalazimi@gmail.com>"
@@ -19,6 +19,8 @@
   "main": "index.js",
   "module": "esm/index.js",
   "scripts": {
+    "build": "./scripts/build/build.sh",
+    "package": "./scripts/build/package.sh",
     "test": "karma start config/karma.js",
     "lint": "eslint .",
     "lint-types": "eslint --config=.ts-eslintrc.js typings.d.ts",
@@ -90,7 +92,6 @@
     "lodash": "^4.17.15",
     "lodash.clonedeep": "^4.5.0",
     "mocha": "^3.5.3",
-    "moment": "^2.24.0",
     "mz": "^2.7.0",
     "node-fetch": "^1.7.3",
     "power-assert": "^1.6.1",

@@ -1,6 +1,6 @@
 /**
  * @name castArray
- * @category Types
+ * @category Types Check
  * @summary cast `value` to `array`.
  *
  * @description

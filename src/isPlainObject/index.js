@@ -13,7 +13,7 @@ function isHostObject(value) {
 const fnToString = Function.prototype.toString
 /**
  * @name isPlainObject
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `object`.
  *
  * @description

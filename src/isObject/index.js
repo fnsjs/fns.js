@@ -1,6 +1,6 @@
 /**
  * @name isObject
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `object`.
  *
  * @description

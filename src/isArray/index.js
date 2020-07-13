@@ -1,6 +1,6 @@
 /**
  * @name isArray
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `Array`.
  *
  * @description

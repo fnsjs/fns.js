@@ -1,7 +1,7 @@
 import isLength from '../isLength'
 
 /**
- * @name toArray
+ * @name isArrayLike
  * @category Typing
  * @summary Checks if `value` is array-like.
  *
@@ -24,6 +24,6 @@ import isLength from '../isLength'
  * isArrayLike(Function)
  * // => false
  */
-export default function toArray(value) {
+export default function isArrayLike(value) {
   return value != null && typeof value !== 'function' && isLength(value.length)
 }

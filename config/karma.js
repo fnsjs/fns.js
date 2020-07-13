@@ -63,15 +63,14 @@ const sauceLabsLaunchers = {
     version: '20.10240'
   },
 
-  // TODO: See if iPhone became more reliable
-  // ios: {
-  //   base: 'SauceLabs',
-  //   browserName: 'iphone',
-  //   platform: 'OS X 10.10',
-  //   version: '9.1',
-  //   deviceName: 'iPhone 6',
-  //   deviceOrientation: 'portrait'
-  // },
+  ios: {
+    base: 'SauceLabs',
+    browserName: 'iphone',
+    platform: 'OS X 10.10',
+    version: '9.1',
+    deviceName: 'iPhone 6',
+    deviceOrientation: 'portrait'
+  },
 
   android: {
     base: 'SauceLabs',
@@ -148,8 +147,6 @@ function config(config) {
       'karma-mocha-reporter',
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
-      // TODO: Make it work
-      // 'karma-sauce-launcher',
       'karma-sourcemap-loader',
       'karma-webpack',
       'karma-benchmark',

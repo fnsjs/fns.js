@@ -233,7 +233,7 @@ function generateFPFnWithOptionsDoc(dirtyDoc) {
 }
 
 function withOptions(args) {
-  return args && args[0].name === 'options'
+  return args && args[0] && args[0].name === 'options'
 }
 
 function generateUsageTabs(isFPFn) {

@@ -2,7 +2,7 @@ import getObjectType from '../utils/getObjectType'
 
 /**
  * @name isString
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `string`.
  *
  * @description

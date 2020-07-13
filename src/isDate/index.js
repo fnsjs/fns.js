@@ -2,7 +2,7 @@ import getObjectType from '../utils/getObjectType'
 
 /**
  * @name isDate
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `date`.
  *
  * @description

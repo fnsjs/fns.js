@@ -2,7 +2,7 @@ import getObjectType from '../utils/getObjectType'
 
 /**
  * @name isFunction
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `function`.
  *
  * @description

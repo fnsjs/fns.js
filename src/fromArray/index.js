@@ -1,6 +1,6 @@
 /**
  * @name fromArray
- * @category Types
+ * @category Types Check
  * @summary cast `value` to `array`.
  *
  * @description
@@ -17,16 +17,16 @@
  * fromArray(1)
  * // => [1]
  */
-export default function fromArray(arrayLike: ArrayLike<any>, mapFn?: void): any {
-    try {
-        if (arrayLike === null || arrayLike === undefined) {
-            return []
-        }
-        if (mapFn) {
-            return Array.from(arrayLike, mapFn)
-        }
-        return Array.from(arrayLike)
-    } catch (e) {
-        return [];
+export default function fromArray(arrayLike, mapFn) {
+  try {
+    if (arrayLike === null || arrayLike === undefined) {
+      return []
     }
+    if (mapFn) {
+      return Array.from(arrayLike, mapFn)
+    }
+    return Array.from(arrayLike)
+  } catch (e) {
+    return []
+  }
 }

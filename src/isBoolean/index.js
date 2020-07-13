@@ -2,7 +2,7 @@ import getObjectType from '../utils/getObjectType'
 
 /**
  * @name isBoolean
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is `boolean`.
  *
  * @description

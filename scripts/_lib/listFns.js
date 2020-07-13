@@ -4,9 +4,9 @@ const fs = require('fs')
 module.exports = listFns
 
 const ignoredFiles = [
-  'locale',
   'esm',
   'fp',
+  'utils',
   'constants',
   'index.js',
   'test.js',

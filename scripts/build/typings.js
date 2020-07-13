@@ -8,6 +8,7 @@
  */
 
 const path = require('path')
+const getConstants = require('../_lib/getConstants')
 const jsDocs = require(path.resolve(process.cwd(), 'tmp/docs.json'))
 
 const { generateTypeScriptTypings } = require('./_lib/typings/typeScript')
@@ -19,7 +20,9 @@ const fns = Object.keys(jsDocs)
   .filter(doc => doc.kind === 'function')
   .sort((a, b) => a.title.localeCompare(b.title, 'en-US'))
 
+const constants = getConstants()
+
 const aliases = jsDocs['Types']
 
-generateTypeScriptTypings(fns, aliases)
-generateFlowTypings(fns, aliases)
+generateTypeScriptTypings(fns, aliases, constants)
+generateFlowTypings(fns, aliases, constants)

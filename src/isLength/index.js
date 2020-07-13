@@ -1,9 +1,8 @@
-/** Used as references for various `Number` constants. */
-const MAX_SAFE_INTEGER = 9007199254740991
+import { MAX_SAFE_INTEGER } from '../constants'
 
 /**
  * @name isLength
- * @category Types
+ * @category Types Check
  * @summary Checks if `value` is a valid array-like length.
  *
  * @description
