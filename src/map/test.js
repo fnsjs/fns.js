@@ -2,27 +2,13 @@
 /* eslint-env mocha */
 
 import assert from 'power-assert'
-import {
-  array,
-  noop,
-  symbol,
-  regex,
-  date,
-  error,
-  object,
-  number,
-  boolean,
-  string
-} from '../utils/testHelpers'
-import get from '.'
+import map from '.'
 
-describe('get', function() {
-  it('get should get string keyed property values', function() {
-    const object = { a: 1 }
-    assert.strictEqual(get(object, 'a'), 1)
-  })
+describe('map', function() {
+  var array = [1, 2]
 
-  it('get should return the default value when `path` is empty', function() {
-    assert.strictEqual(get({}, [], 'a'), 'a')
+  it('should map values and apply function to a new array', function() {
+    const expected = [2, 4]
+    assert.deepStrictEqual(map(array, d => d * 2), expected)
   })
 })
