@@ -1,0 +1,8 @@
+// @flow
+// This file is generated automatically by `scripts/build/typings.js`. Please, don't change it.
+
+declare module.exports: (
+  object: Object,
+  path: Array | string,
+  defaultValue?: any
+) => any

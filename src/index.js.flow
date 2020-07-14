@@ -1,0 +1,50 @@
+// @flow
+// This file is generated automatically by `scripts/build/typings.js`. Please, don't change it.
+
+declare module.exports: {
+  castArray: (value: any) => array,
+
+  fromArray: (arrayLike: any, mapFn: any) => array,
+
+  get: (object: Object, path: Array | string, defaultValue?: any) => any,
+
+  isArray: (value: any) => boolean,
+
+  isArrayLike: (value: any) => boolean,
+
+  isBoolean: (value: any) => boolean,
+
+  isDate: (value: any) => boolean,
+
+  isError: (value: any) => boolean,
+
+  isFunction: (value: any) => boolean,
+
+  isLength: (value: any) => boolean,
+
+  isNull: (value: any) => boolean,
+
+  isNumber: (value: any) => boolean,
+
+  isObject: (value: any) => boolean,
+
+  isObjectLike: (value: any) => boolean,
+
+  isPlainObject: (value: any) => boolean,
+
+  isRegExp: (value: any) => boolean,
+
+  isString: (value: any) => boolean,
+
+  last: (array: any) => boolean,
+
+  map: (array: Array, callback: (...args: Array<any>) => any) => Array,
+
+  map: (array: Array, callback: (...args: Array<any>) => any) => Array,
+
+  reverse: (array: any) => boolean,
+
+  reverse: (array: any) => boolean,
+
+  MAX_SAFE_INTEGER: number
+}
