@@ -46,5 +46,7 @@ declare module.exports: {
 
   reverse: (array: any) => boolean,
 
+  takeRight: (array: array, n?: number) => array,
+
   MAX_SAFE_INTEGER: number
 }
