@@ -21,16 +21,12 @@ import isArray from '../isArray'
  *
  */
 export default function map(array, callback) {
-  if (!isArray(array)) {
-    return []
-  }
-
-  const _array = []
   const arraySize = array.length
+  const _array = new Array(arraySize)
   let index = 0
 
   for (; index < arraySize; index++) {
-    _array[index] = callback(array[index], index, _array)
+    _array[index] = callback(array[index], index, array)
   }
 
   return _array

@@ -17,3 +17,4 @@ export const defineProperty = Object.defineProperty
 export const regex = /a/
 export const push = Array.prototype.push
 export const body = root.document ? root.document.body : undefined
+export const falseyArray = [, null, undefined, false, 0, NaN, '']

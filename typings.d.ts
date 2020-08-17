@@ -99,6 +99,9 @@ declare module 'fns.js' {
   function reverse(array: any): boolean
   namespace reverse {}
 
+  function takeRight(array: array, n?: number): array
+  namespace takeRight {}
+
   const MAX_SAFE_INTEGER: number
 }
 
@@ -212,6 +215,11 @@ declare module 'fns.js/reverse' {
   export default reverse
 }
 
+declare module 'fns.js/takeRight' {
+  import { takeRight } from 'fns.js'
+  export default takeRight
+}
+
 declare module 'fns.js/castArray/index' {
   import { castArray } from 'fns.js'
   export default castArray
@@ -320,6 +328,11 @@ declare module 'fns.js/reverse/index' {
 declare module 'fns.js/reverse/index' {
   import { reverse } from 'fns.js'
   export default reverse
+}
+
+declare module 'fns.js/takeRight/index' {
+  import { takeRight } from 'fns.js'
+  export default takeRight
 }
 
 declare module 'fns.js/castArray/index.js' {
@@ -432,6 +445,11 @@ declare module 'fns.js/reverse/index.js' {
   export default reverse
 }
 
+declare module 'fns.js/takeRight/index.js' {
+  import { takeRight } from 'fns.js'
+  export default takeRight
+}
+
 // FP Functions
 
 declare module 'fns.js/fp' {
@@ -506,6 +524,9 @@ declare module 'fns.js/esm' {
 
   function reverse(array: any): boolean
   namespace reverse {}
+
+  function takeRight(array: array, n?: number): array
+  namespace takeRight {}
 
   const MAX_SAFE_INTEGER: number
 }
@@ -620,6 +641,11 @@ declare module 'fns.js/esm/reverse' {
   export default reverse
 }
 
+declare module 'fns.js/esm/takeRight' {
+  import { takeRight } from 'fns.js/esm'
+  export default takeRight
+}
+
 declare module 'fns.js/esm/castArray/index' {
   import { castArray } from 'fns.js/esm'
   export default castArray
@@ -728,6 +754,11 @@ declare module 'fns.js/esm/reverse/index' {
 declare module 'fns.js/esm/reverse/index' {
   import { reverse } from 'fns.js/esm'
   export default reverse
+}
+
+declare module 'fns.js/esm/takeRight/index' {
+  import { takeRight } from 'fns.js/esm'
+  export default takeRight
 }
 
 declare module 'fns.js/esm/castArray/index.js' {
@@ -840,6 +871,11 @@ declare module 'fns.js/esm/reverse/index.js' {
   export default reverse
 }
 
+declare module 'fns.js/esm/takeRight/index.js' {
+  import { takeRight } from 'fns.js/esm'
+  export default takeRight
+}
+
 // ECMAScript Module FP Functions
 
 declare module 'fns.js/esm/fp' {
@@ -892,6 +928,8 @@ interface dateFns {
   reverse(array: any): boolean
 
   reverse(array: any): boolean
+
+  takeRight(array: array, n?: number): array
 
   MAX_SAFE_INTEGER: number
 }
