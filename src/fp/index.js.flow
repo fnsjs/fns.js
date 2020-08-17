@@ -32,5 +32,5 @@ type CurriedFn4<A, B, C, D, R> = <A>(
         ) => CurriedFn1<D, R> | (<A, B, C, D>(a: A, b: B, c: C, d: D) => R)))
 
 declare module.exports: {
-  MAX_SAFE_INTEGER: number
+  MAX_SAFE_INTEGER: number,
 }

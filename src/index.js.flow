@@ -46,5 +46,5 @@ declare module.exports: {
 
   takeRight: (array: array, n?: number) => array,
 
-  MAX_SAFE_INTEGER: number
+  MAX_SAFE_INTEGER: number,
 }
