@@ -6,8 +6,6 @@ declare module.exports: {
 
   fromArray: (arrayLike: any, mapFn: any) => array,
 
-  get: (object: Object, path: Array | string, defaultValue?: any) => any,
-
   isArray: (value: any) => boolean,
 
   isArrayLike: (value: any) => boolean,

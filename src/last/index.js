@@ -1,5 +1,3 @@
-import isArray from '../isArray'
-
 /**
  * @name last
  * @category Array

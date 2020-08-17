@@ -16,22 +16,8 @@ if [ "$TEST_SUITE" == "main" ]
 then
   yarn lint
   yarn lint-types
-  ./scripts/test/systemJS.js
-  yarn locale-snapshots test
-  ./scripts/test/smoke.sh
-
   yarn test --single-run
-
-  ./scripts/test/dst.sh
-  ./scripts/test/formatISO.sh
-
   prebuild
-  ./scripts/test/tz.sh
-
-elif [ "$TEST_SUITE" == "tz" ]
-then
-  prebuild
-  ./scripts/test/tzExtended.sh
 
 elif [ "$TEST_SUITE" == "cross_browser" ] && [ "$SAUCE_USERNAME" != "" ]
 then

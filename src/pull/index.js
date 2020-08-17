@@ -1,5 +1,3 @@
-import isArray from '../isArray'
-
 /**
  * @name reverse
  * @category Array

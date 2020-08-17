@@ -1,8 +1,8 @@
 // @flow
 /* eslint-env mocha */
 
-import assert from 'power-assert'
-import filter from '.'
+// import assert from 'power-assert'
+// import filter from '.'
 
 describe('get', function() {
   // it('get should get string keyed property values', function() {

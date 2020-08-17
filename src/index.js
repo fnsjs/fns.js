@@ -3,7 +3,6 @@
 export { default as castArray } from './castArray/index.js'
 export { default as filter } from './filter/index.js'
 export { default as fromArray } from './fromArray/index.js'
-export { default as get } from './get/index.js'
 export { default as isArray } from './isArray/index.js'
 export { default as isArrayLike } from './isArrayLike/index.js'
 export { default as isBoolean } from './isBoolean/index.js'

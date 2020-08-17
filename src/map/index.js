@@ -1,5 +1,3 @@
-import isArray from '../isArray'
-
 /**
  * @name map
  * @category Array

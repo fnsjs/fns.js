@@ -5,7 +5,9 @@ function isHostObject(value) {
   if (value !== null && typeof value.toString !== 'function') {
     try {
       result = !!(value + '')
-    } catch (e) {}
+    } catch (e) {
+      result = false
+    }
   }
   return result
 }

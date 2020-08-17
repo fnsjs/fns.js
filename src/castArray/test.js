@@ -17,7 +17,6 @@ import {
 import castArray from '.'
 
 describe('castArray', function() {
-  console.log('[array]', [array])
   it('should return casted array', function() {
     assert.deepEqual(castArray(string), [string])
     assert.deepEqual(castArray(number), [number])
