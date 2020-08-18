@@ -9,4 +9,4 @@ set -ex
 export PATH="$(yarn bin):$PATH"
 
 env COVERAGE_REPORT=true yarn test --single-run
-cat ./coverage/lcov.info | coveralls
+#cat ./coverage/lcov.info | coveralls
