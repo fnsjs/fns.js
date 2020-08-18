@@ -1,0 +1,7 @@
+// @flow
+// This file is generated automatically by `scripts/build/typings.js`. Please, don't change it.
+
+declare module.exports: (
+  array: Array,
+  callback: (...args: Array<any>) => any
+) => Array
