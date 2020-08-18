@@ -1,16 +1,16 @@
 // @flow
 /* eslint-env mocha */
-/* global suite, benchmark */
+/* global benchmark */
 
 import isLength from '.'
 import lodash from 'lodash'
 
-suite('isLength', function() {
-  benchmark('fns.js', function() {
+suite('isLength', function () {
+  benchmark('fns.js', function () {
     return isLength([1, 2, 3, 4, 5])
   })
 
-  benchmark('lodash', function() {
+  benchmark('lodash', function () {
     return lodash.isLength([1, 2, 3, 4, 5])
   })
 })

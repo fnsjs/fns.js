@@ -5,7 +5,7 @@ var benchmarkResultFilename = './tmp/benchmark.json'
 function benchmarkJSONReporter() {
   var benchmarkResult = {}
 
-  this.onSpecComplete = function(_, result) {
+  this.onSpecComplete = function (_, result) {
     var fnName = result.benchmark.suite
     var libraryName = result.benchmark.name
     var operationsPerSecond = Math.floor(result.benchmark.hz)
@@ -17,10 +17,10 @@ function benchmarkJSONReporter() {
     benchmarkResult[fnName][libraryName] = operationsPerSecond
   }
 
-  this.onRunComplete = function() {
+  this.onRunComplete = function () {
     var benchmarkResultArray = []
     for (var fnName in benchmarkResult) {
-      if (benchmarkResult.hasOwnProperty(fnName)) {
+      if (Object.prototype.hasOwnProperty.call(benchmarkResult, fnName)) {
         var element = { fn: fnName }
 
         if (benchmarkResult[fnName]['fns.js']) {
@@ -39,7 +39,7 @@ function benchmarkJSONReporter() {
       benchmarkResultFilename,
       JSON.stringify(benchmarkResultArray),
       'utf-8',
-      function(err) {
+      function (err) {
         if (err) {
           throw err
         }

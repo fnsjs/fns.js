@@ -1,16 +1,16 @@
 // @flow
 /* eslint-env mocha */
-/* global suite, benchmark */
+/* global benchmark */
 
 import isNull from '.'
 import lodash from 'lodash'
 
-suite('isNull', function() {
-  benchmark('fns.js', function() {
+suite('isNull', function () {
+  benchmark('fns.js', function () {
     return isNull(Object)
   })
 
-  benchmark('lodash', function() {
+  benchmark('lodash', function () {
     return lodash.isNull(Object)
   })
 })

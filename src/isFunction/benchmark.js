@@ -1,16 +1,16 @@
 // @flow
 /* eslint-env mocha */
-/* global suite, benchmark */
+/* global benchmark */
 
 import isFunction from '.'
 import lodash from 'lodash'
 
-suite('isFunction', function() {
-  benchmark('fns.js', function() {
+suite('isFunction', function () {
+  benchmark('fns.js', function () {
     return isFunction({})
   })
 
-  benchmark('lodash', function() {
+  benchmark('lodash', function () {
     return lodash.isFunction({})
   })
 })
