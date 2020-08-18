@@ -5,7 +5,8 @@ const plugins = [
   '@babel/plugin-transform-arrow-functions',
   '@babel/plugin-transform-parameters',
   '@babel/plugin-transform-destructuring',
-  '@babel/plugin-transform-spread'
+  '@babel/plugin-transform-spread',
+  '@babel/plugin-syntax-optional-catch-binding',
 ]
 
 if (process.env.NODE_ENV === 'test') {
@@ -19,5 +20,5 @@ if (process.env.TARGET !== 'esm') {
 
 module.exports = {
   presets,
-  plugins
+  plugins,
 }
