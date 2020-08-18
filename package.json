@@ -13,7 +13,7 @@
     "url": "https://opencollective.com/fns.js"
   },
   "engine": {
-    "node": ">= 0.11"
+    "node": ">= 0.12"
   },
   "typings": "./typings.d.ts",
   "main": "index.js",
