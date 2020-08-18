@@ -10,7 +10,7 @@ stages:
 
 env:
   - TEST_SUITE=main
-  - TEST_SUITE=node
+#  - TEST_SUITE=node
 
 before_install:
   - export CHROME_BIN=chromium-browser
