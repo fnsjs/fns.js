@@ -10,7 +10,7 @@ const config = {
   output: getOutputConfig(),
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
+      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
     ].concat(
       process.env.COVERAGE_REPORT
         ? [
@@ -18,26 +18,28 @@ const config = {
               test: /\.js$/,
               use: {
                 loader: 'istanbul-instrumenter-loader',
-                options: { esModules: true }
+                options: { esModules: true },
               },
               enforce: 'post',
-              exclude: /node_modules|test.js|src\/locale$/
-            }
+              exclude: /node_modules|test.js|src\/locale$/,
+            },
           ]
         : []
-    )
+    ),
   },
-  plugins: getPlugins()
+  plugins: getPlugins(),
 }
 
 module.exports = config
 
 function getEntryConfig() {
-  if (process.env.NODE_ENV === 'test') {
+  if (process.env.BUILD_TESTS) {
+    return undefined
+  } else if (process.env.NODE_ENV === 'test') {
     return undefined
   } else {
     return {
-      fnsJS: './tmp/umd/index.js'
+      fns_js: './tmp/umd/index.js',
     }
   }
 }
@@ -46,7 +48,7 @@ function getOutputConfig() {
   if (process.env.BUILD_TESTS) {
     return {
       path: path.join(process.cwd(), 'tmp'),
-      filename: '[name].js'
+      filename: '[name].js',
     }
   } else if (process.env.NODE_ENV === 'test') {
     return undefined
@@ -55,7 +57,7 @@ function getOutputConfig() {
       path: path.join(process.cwd(), 'dist'),
       filename: '[name].js',
       library: 'fnsJS',
-      libraryTarget: 'umd'
+      libraryTarget: 'umd',
     }
   }
 }
@@ -66,7 +68,7 @@ function getPlugins() {
         new webpack.ContextReplacementPlugin(
           /power-assert-formatter[\\/]lib/,
           new RegExp('^\\./.*\\.js$')
-        )
+        ),
       ]
     : undefined
 }
