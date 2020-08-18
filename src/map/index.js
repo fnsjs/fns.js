@@ -6,9 +6,9 @@
  * @description
  * creates a new array populated with the results of calling a provided function on every element in the calling array.
  *
- * @param {array} array The array to iterate over.
+ * @param {Array} array The array to iterate over.
  * @param {Function} callback that is called for every element of arr. Each time callback executes, the returned value is added to new_array.
- * @returns {array} A new array with each element being the result of the callback function.
+ * @returns {Array} A new array with each element being the result of the callback function.
  *
  * @exampleåå
  *

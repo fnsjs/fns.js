@@ -2,6 +2,6 @@
 // This file is generated automatically by `scripts/build/typings.js`. Please, don't change it.
 
 declare module.exports: (
-  array: array,
+  array: Array<any>,
   callback: (...args: Array<any>) => any
-) => array
+) => Array<any>

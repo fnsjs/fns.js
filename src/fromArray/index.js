@@ -8,7 +8,7 @@
  *
  * @param {*} arrayLike - An array-like or iterable object to convert to an array.
  * @param {*} mapFn - Map function to call on every element of the array.
- * @returns {array} A new Array instance.
+ * @returns {Array} A new Array instance.
  *
  * @example
  * fromArray("hello")

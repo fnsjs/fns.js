@@ -2,11 +2,14 @@
 // This file is generated automatically by `scripts/build/typings.js`. Please, don't change it.
 
 declare module.exports: {
-  castArray: (value: any) => array,
+  castArray: (value: any) => Array<any>,
 
-  filter: (array: Array, callback: (...args: Array<any>) => any) => Array,
+  filter: (
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ) => Array<any>,
 
-  fromArray: (arrayLike: any, mapFn: any) => array,
+  fromArray: (arrayLike: any, mapFn: any) => Array<any>,
 
   isArray: (value: any) => boolean,
 
@@ -38,13 +41,16 @@ declare module.exports: {
 
   last: (array: any) => boolean,
 
-  map: (array: array, callback: (...args: Array<any>) => any) => array,
+  map: (
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ) => Array<any>,
 
   pull: (array: any) => boolean,
 
   reverse: (array: any) => boolean,
 
-  takeRight: (array: array, n?: number) => array,
+  takeRight: (array: Array<any>, n?: number) => Array<any>,
 
   MAX_SAFE_INTEGER: number,
 }

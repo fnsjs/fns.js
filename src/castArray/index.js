@@ -7,7 +7,7 @@
  * cast `value` to `array`.
  *
  * @param {*} value - The value to cast.
- * @returns {array} Returns the cast array.
+ * @returns {Array} Returns the cast array.
  *
  * @example
  * castArray("hello")

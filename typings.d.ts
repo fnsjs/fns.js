@@ -33,13 +33,16 @@ declare module 'fns.js' {}
 // Regular Functions
 
 declare module 'fns.js' {
-  function castArray(value: any): array
+  function castArray(value: any): Array<any>
   namespace castArray {}
 
-  function filter(array: Array, callback: (...args: Array<any>) => any): Array
+  function filter(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
   namespace filter {}
 
-  function fromArray(arrayLike: any, mapFn: any): array
+  function fromArray(arrayLike: any, mapFn: any): Array<any>
   namespace fromArray {}
 
   function isArray(value: any): boolean
@@ -87,7 +90,10 @@ declare module 'fns.js' {
   function last(array: any): boolean
   namespace last {}
 
-  function map(array: array, callback: (...args: Array<any>) => any): array
+  function map(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
   namespace map {}
 
   function pull(array: any): boolean
@@ -96,7 +102,7 @@ declare module 'fns.js' {
   function reverse(array: any): boolean
   namespace reverse {}
 
-  function takeRight(array: array, n?: number): array
+  function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
   const MAX_SAFE_INTEGER: number
@@ -441,13 +447,16 @@ declare module 'fns.js/fp' {
 // ECMAScript Module Functions
 
 declare module 'fns.js/esm' {
-  function castArray(value: any): array
+  function castArray(value: any): Array<any>
   namespace castArray {}
 
-  function filter(array: Array, callback: (...args: Array<any>) => any): Array
+  function filter(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
   namespace filter {}
 
-  function fromArray(arrayLike: any, mapFn: any): array
+  function fromArray(arrayLike: any, mapFn: any): Array<any>
   namespace fromArray {}
 
   function isArray(value: any): boolean
@@ -495,7 +504,10 @@ declare module 'fns.js/esm' {
   function last(array: any): boolean
   namespace last {}
 
-  function map(array: array, callback: (...args: Array<any>) => any): array
+  function map(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
   namespace map {}
 
   function pull(array: any): boolean
@@ -504,7 +516,7 @@ declare module 'fns.js/esm' {
   function reverse(array: any): boolean
   namespace reverse {}
 
-  function takeRight(array: array, n?: number): array
+  function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
   const MAX_SAFE_INTEGER: number
@@ -849,11 +861,11 @@ declare module 'fns.js/esm/fp' {
 // dateFns Global Interface
 
 interface dateFns {
-  castArray(value: any): array
+  castArray(value: any): Array<any>
 
-  filter(array: Array, callback: (...args: Array<any>) => any): Array
+  filter(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 
-  fromArray(arrayLike: any, mapFn: any): array
+  fromArray(arrayLike: any, mapFn: any): Array<any>
 
   isArray(value: any): boolean
 
@@ -885,13 +897,13 @@ interface dateFns {
 
   last(array: any): boolean
 
-  map(array: array, callback: (...args: Array<any>) => any): array
+  map(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 
   pull(array: any): boolean
 
   reverse(array: any): boolean
 
-  takeRight(array: array, n?: number): array
+  takeRight(array: Array<any>, n?: number): Array<any>
 
   MAX_SAFE_INTEGER: number
 }

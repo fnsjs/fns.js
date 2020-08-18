@@ -8,9 +8,9 @@ import isArray from '../isArray'
  * @description
  * Creates a slice of array with n elements taken from the end.
  *
- * @param {array} array The array to get slice.
+ * @param {Array} array The array to get slice.
  * @param {number} [n=1] The number of elements to take.
- * @returns {array} Returns the slice of `array`.
+ * @returns {Array} Returns the slice of `array`.
  * @throws {TypeError} should be Array-like value.
  *
  * @example
@@ -27,7 +27,7 @@ import isArray from '../isArray'
  */
 export default function takeRight(array, n = 1) {
   if (!isArray(array)) {
-    throw new TypeError(`${array} should be Array-like value!`)
+    throw new TypeError(`${Array} should be Array-like value!`)
   }
   const length = array == null ? 0 : array.length
   if (!length) {

@@ -15,13 +15,13 @@ function getParams(params, { leftBorder = '{', rightBorder = '}' } = {}) {
   }
 
   const formattedParams = addSeparator(
-    params.map(param => {
+    params.map((param) => {
       const {
         name,
         props,
         optional,
         variable,
-        type: { names: typeNames }
+        type: { names: typeNames },
       } = param
       const type = getType(typeNames, { props, forceArray: variable })
       return `${variable ? '...' : ''}${name}${optional ? '?' : ''}: ${type}`
@@ -37,7 +37,7 @@ function getParams(params, { leftBorder = '{', rightBorder = '}' } = {}) {
 }
 
 function getType(types, { props = [], forceArray = false } = {}) {
-  const typeStrings = types.map(type => {
+  const typeStrings = types.map((type) => {
     if (type === '*') {
       return 'any'
     }
@@ -49,6 +49,10 @@ function getType(types, { props = [], forceArray = false } = {}) {
     if (type.startsWith('Array.')) {
       const [, arrayType] = type.match(/^Array\.<(\w+)>$/i)
       return `${correctTypeCase(arrayType)}[]`
+    }
+
+    if (type.startsWith('Array')) {
+      return `Array<any>`
     }
 
     if (type === 'Object' && props.length > 0) {
@@ -64,16 +68,18 @@ function getType(types, { props = [], forceArray = false } = {}) {
   })
 
   const allArrayTypes =
-    typeStrings.length > 1 && typeStrings.every(type => type.endsWith('[]'))
+    typeStrings.length > 1 && typeStrings.every((type) => type.endsWith('[]'))
   if (allArrayTypes) {
-    return `(${typeStrings.map(type => type.replace('[]', '')).join(' | ')})[]`
+    return `(${typeStrings
+      .map((type) => type.replace('[]', ''))
+      .join(' | ')})[]`
   }
 
   return typeStrings.join(' | ')
 }
 
 function getFPFnType(params, returns) {
-  const fpParamTypes = params.map(param =>
+  const fpParamTypes = params.map((param) =>
     getType(param.type.names, { props: param.props })
   )
 
@@ -88,5 +94,5 @@ module.exports = {
   correctTypeCase,
   getParams,
   getType,
-  getFPFnType
+  getFPFnType,
 }
