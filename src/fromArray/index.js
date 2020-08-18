@@ -18,15 +18,11 @@
  * // => [1]
  */
 export default function fromArray(arrayLike, mapFn) {
-  try {
-    if (arrayLike === null || arrayLike === undefined) {
-      return []
-    }
-    if (mapFn) {
-      return Array.from(arrayLike, mapFn)
-    }
-    return Array.from(arrayLike)
-  } catch (e) {
+  if (arrayLike === null || arrayLike === undefined) {
     return []
   }
+  if (mapFn) {
+    return Array.from(arrayLike, mapFn)
+  }
+  return Array.from(arrayLike)
 }

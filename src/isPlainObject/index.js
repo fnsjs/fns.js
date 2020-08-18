@@ -3,11 +3,7 @@ import getObjectType from '../utils/getObjectType'
 function isHostObject(value) {
   let result = false
   if (value !== null && typeof value.toString !== 'function') {
-    try {
-      result = !!(value + '')
-    } catch (e) {
-      result = false
-    }
+    result = !!(value + '')
   }
   return result
 }
