@@ -1,5 +1,5 @@
 /**
- * @name reverse
+ * @name pull
  * @category Array
  * @summary Checks if `value` is `Error`.
  *
@@ -18,5 +18,5 @@
  */
 export default function pull(array, ...removeList) {
   const removeSet = new Set(removeList)
-  return array.filter(el => !removeSet.has(el))
+  return array.filter((el) => !removeSet.has(el))
 }

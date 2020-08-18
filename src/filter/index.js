@@ -1,7 +1,7 @@
 import isArray from '../isArray'
 
 /**
- * @name map
+ * @name filter
  * @category Array
  * @summary Gets the value at path of object.
  *
@@ -20,7 +20,7 @@ import isArray from '../isArray'
  * // => [2, 8, 18, 32]
  *
  */
-export default function map(array, callback) {
+export default function filter(array, callback) {
   if (!isArray(array)) {
     return []
   }

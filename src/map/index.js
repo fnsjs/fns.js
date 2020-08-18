@@ -1,16 +1,16 @@
 /**
  * @name map
  * @category Array
- * @summary Gets the value at path of object.
+ * @summary Iterate over array and return a new array.
  *
  * @description
  * creates a new array populated with the results of calling a provided function on every element in the calling array.
  *
- * @param {Array} array The array to iterate over.
+ * @param {array} array The array to iterate over.
  * @param {Function} callback that is called for every element of arr. Each time callback executes, the returned value is added to new_array.
- * @returns {Array} A new array with each element being the result of the callback function.
+ * @returns {array} A new array with each element being the result of the callback function.
  *
- * @example
+ * @exampleåå
  *
  * const array = [1, 4, 9, 16];
  *
@@ -18,6 +18,7 @@
  * // => [2, 8, 18, 32]
  *
  */
+
 export default function map(array, callback) {
   const arraySize = array.length
   const _array = new Array(arraySize)

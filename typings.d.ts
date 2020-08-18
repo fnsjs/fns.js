@@ -36,6 +36,9 @@ declare module 'fns.js' {
   function castArray(value: any): array
   namespace castArray {}
 
+  function filter(array: Array, callback: (...args: Array<any>) => any): Array
+  namespace filter {}
+
   function fromArray(arrayLike: any, mapFn: any): array
   namespace fromArray {}
 
@@ -84,14 +87,11 @@ declare module 'fns.js' {
   function last(array: any): boolean
   namespace last {}
 
-  function map(array: Array, callback: (...args: Array<any>) => any): Array
+  function map(array: array, callback: (...args: Array<any>) => any): array
   namespace map {}
 
-  function map(array: Array, callback: (...args: Array<any>) => any): Array
-  namespace map {}
-
-  function reverse(array: any): boolean
-  namespace reverse {}
+  function pull(array: any): boolean
+  namespace pull {}
 
   function reverse(array: any): boolean
   namespace reverse {}
@@ -105,6 +105,11 @@ declare module 'fns.js' {
 declare module 'fns.js/castArray' {
   import { castArray } from 'fns.js'
   export default castArray
+}
+
+declare module 'fns.js/filter' {
+  import { filter } from 'fns.js'
+  export default filter
 }
 
 declare module 'fns.js/fromArray' {
@@ -192,14 +197,9 @@ declare module 'fns.js/map' {
   export default map
 }
 
-declare module 'fns.js/map' {
-  import { map } from 'fns.js'
-  export default map
-}
-
-declare module 'fns.js/reverse' {
-  import { reverse } from 'fns.js'
-  export default reverse
+declare module 'fns.js/pull' {
+  import { pull } from 'fns.js'
+  export default pull
 }
 
 declare module 'fns.js/reverse' {
@@ -215,6 +215,11 @@ declare module 'fns.js/takeRight' {
 declare module 'fns.js/castArray/index' {
   import { castArray } from 'fns.js'
   export default castArray
+}
+
+declare module 'fns.js/filter/index' {
+  import { filter } from 'fns.js'
+  export default filter
 }
 
 declare module 'fns.js/fromArray/index' {
@@ -302,14 +307,9 @@ declare module 'fns.js/map/index' {
   export default map
 }
 
-declare module 'fns.js/map/index' {
-  import { map } from 'fns.js'
-  export default map
-}
-
-declare module 'fns.js/reverse/index' {
-  import { reverse } from 'fns.js'
-  export default reverse
+declare module 'fns.js/pull/index' {
+  import { pull } from 'fns.js'
+  export default pull
 }
 
 declare module 'fns.js/reverse/index' {
@@ -325,6 +325,11 @@ declare module 'fns.js/takeRight/index' {
 declare module 'fns.js/castArray/index.js' {
   import { castArray } from 'fns.js'
   export default castArray
+}
+
+declare module 'fns.js/filter/index.js' {
+  import { filter } from 'fns.js'
+  export default filter
 }
 
 declare module 'fns.js/fromArray/index.js' {
@@ -412,14 +417,9 @@ declare module 'fns.js/map/index.js' {
   export default map
 }
 
-declare module 'fns.js/map/index.js' {
-  import { map } from 'fns.js'
-  export default map
-}
-
-declare module 'fns.js/reverse/index.js' {
-  import { reverse } from 'fns.js'
-  export default reverse
+declare module 'fns.js/pull/index.js' {
+  import { pull } from 'fns.js'
+  export default pull
 }
 
 declare module 'fns.js/reverse/index.js' {
@@ -443,6 +443,9 @@ declare module 'fns.js/fp' {
 declare module 'fns.js/esm' {
   function castArray(value: any): array
   namespace castArray {}
+
+  function filter(array: Array, callback: (...args: Array<any>) => any): Array
+  namespace filter {}
 
   function fromArray(arrayLike: any, mapFn: any): array
   namespace fromArray {}
@@ -492,14 +495,11 @@ declare module 'fns.js/esm' {
   function last(array: any): boolean
   namespace last {}
 
-  function map(array: Array, callback: (...args: Array<any>) => any): Array
+  function map(array: array, callback: (...args: Array<any>) => any): array
   namespace map {}
 
-  function map(array: Array, callback: (...args: Array<any>) => any): Array
-  namespace map {}
-
-  function reverse(array: any): boolean
-  namespace reverse {}
+  function pull(array: any): boolean
+  namespace pull {}
 
   function reverse(array: any): boolean
   namespace reverse {}
@@ -513,6 +513,11 @@ declare module 'fns.js/esm' {
 declare module 'fns.js/esm/castArray' {
   import { castArray } from 'fns.js/esm'
   export default castArray
+}
+
+declare module 'fns.js/esm/filter' {
+  import { filter } from 'fns.js/esm'
+  export default filter
 }
 
 declare module 'fns.js/esm/fromArray' {
@@ -600,14 +605,9 @@ declare module 'fns.js/esm/map' {
   export default map
 }
 
-declare module 'fns.js/esm/map' {
-  import { map } from 'fns.js/esm'
-  export default map
-}
-
-declare module 'fns.js/esm/reverse' {
-  import { reverse } from 'fns.js/esm'
-  export default reverse
+declare module 'fns.js/esm/pull' {
+  import { pull } from 'fns.js/esm'
+  export default pull
 }
 
 declare module 'fns.js/esm/reverse' {
@@ -623,6 +623,11 @@ declare module 'fns.js/esm/takeRight' {
 declare module 'fns.js/esm/castArray/index' {
   import { castArray } from 'fns.js/esm'
   export default castArray
+}
+
+declare module 'fns.js/esm/filter/index' {
+  import { filter } from 'fns.js/esm'
+  export default filter
 }
 
 declare module 'fns.js/esm/fromArray/index' {
@@ -710,14 +715,9 @@ declare module 'fns.js/esm/map/index' {
   export default map
 }
 
-declare module 'fns.js/esm/map/index' {
-  import { map } from 'fns.js/esm'
-  export default map
-}
-
-declare module 'fns.js/esm/reverse/index' {
-  import { reverse } from 'fns.js/esm'
-  export default reverse
+declare module 'fns.js/esm/pull/index' {
+  import { pull } from 'fns.js/esm'
+  export default pull
 }
 
 declare module 'fns.js/esm/reverse/index' {
@@ -733,6 +733,11 @@ declare module 'fns.js/esm/takeRight/index' {
 declare module 'fns.js/esm/castArray/index.js' {
   import { castArray } from 'fns.js/esm'
   export default castArray
+}
+
+declare module 'fns.js/esm/filter/index.js' {
+  import { filter } from 'fns.js/esm'
+  export default filter
 }
 
 declare module 'fns.js/esm/fromArray/index.js' {
@@ -820,14 +825,9 @@ declare module 'fns.js/esm/map/index.js' {
   export default map
 }
 
-declare module 'fns.js/esm/map/index.js' {
-  import { map } from 'fns.js/esm'
-  export default map
-}
-
-declare module 'fns.js/esm/reverse/index.js' {
-  import { reverse } from 'fns.js/esm'
-  export default reverse
+declare module 'fns.js/esm/pull/index.js' {
+  import { pull } from 'fns.js/esm'
+  export default pull
 }
 
 declare module 'fns.js/esm/reverse/index.js' {
@@ -850,6 +850,8 @@ declare module 'fns.js/esm/fp' {
 
 interface dateFns {
   castArray(value: any): array
+
+  filter(array: Array, callback: (...args: Array<any>) => any): Array
 
   fromArray(arrayLike: any, mapFn: any): array
 
@@ -883,11 +885,9 @@ interface dateFns {
 
   last(array: any): boolean
 
-  map(array: Array, callback: (...args: Array<any>) => any): Array
+  map(array: array, callback: (...args: Array<any>) => any): array
 
-  map(array: Array, callback: (...args: Array<any>) => any): Array
-
-  reverse(array: any): boolean
+  pull(array: any): boolean
 
   reverse(array: any): boolean
 

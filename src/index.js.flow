@@ -4,6 +4,8 @@
 declare module.exports: {
   castArray: (value: any) => array,
 
+  filter: (array: Array, callback: (...args: Array<any>) => any) => Array,
+
   fromArray: (arrayLike: any, mapFn: any) => array,
 
   isArray: (value: any) => boolean,
@@ -36,11 +38,9 @@ declare module.exports: {
 
   last: (array: any) => boolean,
 
-  map: (array: Array, callback: (...args: Array<any>) => any) => Array,
+  map: (array: array, callback: (...args: Array<any>) => any) => array,
 
-  map: (array: Array, callback: (...args: Array<any>) => any) => Array,
-
-  reverse: (array: any) => boolean,
+  pull: (array: any) => boolean,
 
   reverse: (array: any) => boolean,
 
