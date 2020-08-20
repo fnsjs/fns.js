@@ -1,6 +1,6 @@
 {
   "name": "fns.js",
-  "version": "DON'T CHANGE; IT'S SET AUTOMATICALLY DURING DEPLOYMENT; ALSO, USE YARN FOR DEVELOPMENT",
+  "version": "DON'T CHANGE; IT'S SET AUTOMATICALLY DURING DEPLOYMENT",
   "sideEffects": false,
   "contributors": [
     "Jalal Azimi <jalalazimi@gmail.com>"
@@ -104,8 +104,7 @@
     "typescript": "^3.9.7",
     "underscore": "^1.10.2",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "world-countries": "^4.0.0"
+    "webpack-cli": "^3.3.12"
   },
   "resolutions": {
     "ajv": "6.12.04"

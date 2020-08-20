@@ -12,8 +12,6 @@ const { getFirebaseDB } = require('../_lib/firebase')
 const path = require('path')
 const fs = require('fs')
 const childProcess = require('child_process')
-const listLocales = require('../_lib/listLocales')
-const countries = require('world-countries')
 const { version } = require('../../package.json')
 
 const prereleaseRegExp = /(test|alpha|beta|rc)/
@@ -25,31 +23,7 @@ const features = {
   camelCase: true,
   fp: true,
   esm: true,
-  utc: false
-}
-
-function generateLocale(tag, locale) {
-  const { code, fullPath } = locale
-  const source = fs.readFileSync(path.join(process.cwd(), fullPath)).toString()
-  const languageName = source.match(/\* @language (.*)/)[1]
-  const iso639dash2 = source.match(/\* @iso-639-2 (.*)/)[1]
-
-  if (iso639dash2) {
-    return {
-      code,
-      url: `https://github.com/fns.js/fns.js/tree/${tag}/src/locale/${code}`,
-      name: languageName,
-      countries: countries.reduce((acc, country) => {
-        if (Object.keys(country.languages).includes(iso639dash2)) {
-          return acc.concat(country.cca2)
-        } else {
-          return acc
-        }
-      }, [])
-    }
-  } else {
-    return null
-  }
+  utc: false,
 }
 
 function generateVersionData() {
@@ -84,11 +58,9 @@ function generateVersionData() {
       category,
       title,
       description,
-      key: index
+      key: index,
     })
   )
-
-  const locales = listLocales().map(generateLocale.bind(null, tag))
 
   return {
     tag,
@@ -98,8 +70,7 @@ function generateVersionData() {
     docsPages,
     docsKeys,
     docsCategories,
-    locales,
-    features
+    features,
   }
 }
 
@@ -110,7 +81,7 @@ function generateDocs(data) {
     tag,
     pages: docsPages,
     keys: docsKeys,
-    categories: docsCategories
+    categories: docsCategories,
   }
 }
 
@@ -124,12 +95,12 @@ function generateVersion(data, docsKey) {
     prerelease,
     features,
     locales,
-    docsKey
+    docsKey,
   }
 }
 
 getFirebaseDB()
-  .then(db => {
+  .then((db) => {
     const data = generateVersionData()
 
     const docsListRef = db.ref('/docs')
@@ -140,14 +111,14 @@ getFirebaseDB()
 
     return Promise.all([
       docsRef.set(generateDocs(data)),
-      versionRef.set(generateVersion(data, docsRef.key))
+      versionRef.set(generateVersion(data, docsRef.key)),
     ])
   })
   .then(() => {
     console.log('Done!')
     process.exit(0)
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
     process.exit(1)
   })

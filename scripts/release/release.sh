@@ -36,7 +36,7 @@ fi
 cd - || exit
 
 ./scripts/build/docs.js
-./scripts/release/updateFirebase.js
+#./scripts/release/updateFirebase.js
 # TODO: Reanimate it
 # if [ "$IS_PRE_RELEASE" = false ]
 # then
