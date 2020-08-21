@@ -10,7 +10,7 @@
  * @param {Function} callback that is called for every element of arr. Each time callback executes, the returned value is added to new_array.
  * @returns {Array} A new array with each element being the result of the callback function.
  *
- * @exampleåå
+ * @example
  *
  * const array = [1, 4, 9, 16];
  *
