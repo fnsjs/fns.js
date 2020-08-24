@@ -36,20 +36,11 @@ declare module 'fns.js' {
   function castArray(value: any): Array<any>
   namespace castArray {}
 
-  function filter(
-    array: Array<any>,
-    callback: (...args: Array<any>) => any
-  ): Array<any>
-  namespace filter {}
-
   function fromArray(arrayLike: any, mapFn: any): Array<any>
   namespace fromArray {}
 
   function isArray(value: any): boolean
   namespace isArray {}
-
-  function isArrayLike(value: any): boolean
-  namespace isArrayLike {}
 
   function isBoolean(value: any): boolean
   namespace isBoolean {}
@@ -87,6 +78,12 @@ declare module 'fns.js' {
   function isString(value: any): boolean
   namespace isString {}
 
+  function filter(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
+  namespace filter {}
+
   function last(array: any): boolean
   namespace last {}
 
@@ -96,8 +93,18 @@ declare module 'fns.js' {
   ): Array<any>
   namespace map {}
 
+  function max(array: Array<any>): any
+  namespace max {}
+
   function pull(array: any): boolean
   namespace pull {}
+
+  function reduce(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
+  namespace reduce {}
 
   function reverse(array: any): boolean
   namespace reverse {}
@@ -105,17 +112,15 @@ declare module 'fns.js' {
   function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
+  function isArrayLike(value: any): boolean
+  namespace isArrayLike {}
+
   const MAX_SAFE_INTEGER: number
 }
 
 declare module 'fns.js/castArray' {
   import { castArray } from 'fns.js'
   export default castArray
-}
-
-declare module 'fns.js/filter' {
-  import { filter } from 'fns.js'
-  export default filter
 }
 
 declare module 'fns.js/fromArray' {
@@ -126,11 +131,6 @@ declare module 'fns.js/fromArray' {
 declare module 'fns.js/isArray' {
   import { isArray } from 'fns.js'
   export default isArray
-}
-
-declare module 'fns.js/isArrayLike' {
-  import { isArrayLike } from 'fns.js'
-  export default isArrayLike
 }
 
 declare module 'fns.js/isBoolean' {
@@ -193,6 +193,11 @@ declare module 'fns.js/isString' {
   export default isString
 }
 
+declare module 'fns.js/filter' {
+  import { filter } from 'fns.js'
+  export default filter
+}
+
 declare module 'fns.js/last' {
   import { last } from 'fns.js'
   export default last
@@ -203,9 +208,19 @@ declare module 'fns.js/map' {
   export default map
 }
 
+declare module 'fns.js/max' {
+  import { max } from 'fns.js'
+  export default max
+}
+
 declare module 'fns.js/pull' {
   import { pull } from 'fns.js'
   export default pull
+}
+
+declare module 'fns.js/reduce' {
+  import { reduce } from 'fns.js'
+  export default reduce
 }
 
 declare module 'fns.js/reverse' {
@@ -218,14 +233,14 @@ declare module 'fns.js/takeRight' {
   export default takeRight
 }
 
+declare module 'fns.js/isArrayLike' {
+  import { isArrayLike } from 'fns.js'
+  export default isArrayLike
+}
+
 declare module 'fns.js/castArray/index' {
   import { castArray } from 'fns.js'
   export default castArray
-}
-
-declare module 'fns.js/filter/index' {
-  import { filter } from 'fns.js'
-  export default filter
 }
 
 declare module 'fns.js/fromArray/index' {
@@ -236,11 +251,6 @@ declare module 'fns.js/fromArray/index' {
 declare module 'fns.js/isArray/index' {
   import { isArray } from 'fns.js'
   export default isArray
-}
-
-declare module 'fns.js/isArrayLike/index' {
-  import { isArrayLike } from 'fns.js'
-  export default isArrayLike
 }
 
 declare module 'fns.js/isBoolean/index' {
@@ -303,6 +313,11 @@ declare module 'fns.js/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/filter/index' {
+  import { filter } from 'fns.js'
+  export default filter
+}
+
 declare module 'fns.js/last/index' {
   import { last } from 'fns.js'
   export default last
@@ -313,9 +328,19 @@ declare module 'fns.js/map/index' {
   export default map
 }
 
+declare module 'fns.js/max/index' {
+  import { max } from 'fns.js'
+  export default max
+}
+
 declare module 'fns.js/pull/index' {
   import { pull } from 'fns.js'
   export default pull
+}
+
+declare module 'fns.js/reduce/index' {
+  import { reduce } from 'fns.js'
+  export default reduce
 }
 
 declare module 'fns.js/reverse/index' {
@@ -328,14 +353,14 @@ declare module 'fns.js/takeRight/index' {
   export default takeRight
 }
 
+declare module 'fns.js/isArrayLike/index' {
+  import { isArrayLike } from 'fns.js'
+  export default isArrayLike
+}
+
 declare module 'fns.js/castArray/index.js' {
   import { castArray } from 'fns.js'
   export default castArray
-}
-
-declare module 'fns.js/filter/index.js' {
-  import { filter } from 'fns.js'
-  export default filter
 }
 
 declare module 'fns.js/fromArray/index.js' {
@@ -346,11 +371,6 @@ declare module 'fns.js/fromArray/index.js' {
 declare module 'fns.js/isArray/index.js' {
   import { isArray } from 'fns.js'
   export default isArray
-}
-
-declare module 'fns.js/isArrayLike/index.js' {
-  import { isArrayLike } from 'fns.js'
-  export default isArrayLike
 }
 
 declare module 'fns.js/isBoolean/index.js' {
@@ -413,6 +433,11 @@ declare module 'fns.js/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/filter/index.js' {
+  import { filter } from 'fns.js'
+  export default filter
+}
+
 declare module 'fns.js/last/index.js' {
   import { last } from 'fns.js'
   export default last
@@ -423,9 +448,19 @@ declare module 'fns.js/map/index.js' {
   export default map
 }
 
+declare module 'fns.js/max/index.js' {
+  import { max } from 'fns.js'
+  export default max
+}
+
 declare module 'fns.js/pull/index.js' {
   import { pull } from 'fns.js'
   export default pull
+}
+
+declare module 'fns.js/reduce/index.js' {
+  import { reduce } from 'fns.js'
+  export default reduce
 }
 
 declare module 'fns.js/reverse/index.js' {
@@ -438,10 +473,447 @@ declare module 'fns.js/takeRight/index.js' {
   export default takeRight
 }
 
+declare module 'fns.js/isArrayLike/index.js' {
+  import { isArrayLike } from 'fns.js'
+  export default isArrayLike
+}
+
 // FP Functions
 
 declare module 'fns.js/fp' {
+  const castArray: CurriedFn1<any, Array<any>>
+  namespace castArray {}
+
+  const fromArray: CurriedFn2<any, any, Array<any>>
+  namespace fromArray {}
+
+  const isArray: CurriedFn1<any, boolean>
+  namespace isArray {}
+
+  const isBoolean: CurriedFn1<any, boolean>
+  namespace isBoolean {}
+
+  const isDate: CurriedFn1<any, boolean>
+  namespace isDate {}
+
+  const isError: CurriedFn1<any, boolean>
+  namespace isError {}
+
+  const isFunction: CurriedFn1<any, boolean>
+  namespace isFunction {}
+
+  const isLength: CurriedFn1<any, boolean>
+  namespace isLength {}
+
+  const isNull: CurriedFn1<any, boolean>
+  namespace isNull {}
+
+  const isNumber: CurriedFn1<any, boolean>
+  namespace isNumber {}
+
+  const isObject: CurriedFn1<any, boolean>
+  namespace isObject {}
+
+  const isObjectLike: CurriedFn1<any, boolean>
+  namespace isObjectLike {}
+
+  const isPlainObject: CurriedFn1<any, boolean>
+  namespace isPlainObject {}
+
+  const isRegExp: CurriedFn1<any, boolean>
+  namespace isRegExp {}
+
+  const isString: CurriedFn1<any, boolean>
+  namespace isString {}
+
+  const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
+  namespace filter {}
+
+  const last: CurriedFn1<any, boolean>
+  namespace last {}
+
+  const map: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
+  namespace map {}
+
+  const max: CurriedFn1<Array<any>, any>
+  namespace max {}
+
+  const pull: CurriedFn1<any, boolean>
+  namespace pull {}
+
+  const reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>
+  namespace reduce {}
+
+  const reverse: CurriedFn1<any, boolean>
+  namespace reverse {}
+
+  const takeRight: CurriedFn2<number, Array<any>, Array<any>>
+  namespace takeRight {}
+
+  const isArrayLike: CurriedFn1<any, boolean>
+  namespace isArrayLike {}
+
   const MAX_SAFE_INTEGER: number
+}
+
+declare module 'fns.js/fp/castArray' {
+  import { castArray } from 'fns.js/fp'
+  export default castArray
+}
+
+declare module 'fns.js/fp/fromArray' {
+  import { fromArray } from 'fns.js/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/fp/isArray' {
+  import { isArray } from 'fns.js/fp'
+  export default isArray
+}
+
+declare module 'fns.js/fp/isBoolean' {
+  import { isBoolean } from 'fns.js/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/fp/isDate' {
+  import { isDate } from 'fns.js/fp'
+  export default isDate
+}
+
+declare module 'fns.js/fp/isError' {
+  import { isError } from 'fns.js/fp'
+  export default isError
+}
+
+declare module 'fns.js/fp/isFunction' {
+  import { isFunction } from 'fns.js/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/fp/isLength' {
+  import { isLength } from 'fns.js/fp'
+  export default isLength
+}
+
+declare module 'fns.js/fp/isNull' {
+  import { isNull } from 'fns.js/fp'
+  export default isNull
+}
+
+declare module 'fns.js/fp/isNumber' {
+  import { isNumber } from 'fns.js/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/fp/isObject' {
+  import { isObject } from 'fns.js/fp'
+  export default isObject
+}
+
+declare module 'fns.js/fp/isObjectLike' {
+  import { isObjectLike } from 'fns.js/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/fp/isPlainObject' {
+  import { isPlainObject } from 'fns.js/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/fp/isRegExp' {
+  import { isRegExp } from 'fns.js/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/fp/isString' {
+  import { isString } from 'fns.js/fp'
+  export default isString
+}
+
+declare module 'fns.js/fp/filter' {
+  import { filter } from 'fns.js/fp'
+  export default filter
+}
+
+declare module 'fns.js/fp/last' {
+  import { last } from 'fns.js/fp'
+  export default last
+}
+
+declare module 'fns.js/fp/map' {
+  import { map } from 'fns.js/fp'
+  export default map
+}
+
+declare module 'fns.js/fp/max' {
+  import { max } from 'fns.js/fp'
+  export default max
+}
+
+declare module 'fns.js/fp/pull' {
+  import { pull } from 'fns.js/fp'
+  export default pull
+}
+
+declare module 'fns.js/fp/reduce' {
+  import { reduce } from 'fns.js/fp'
+  export default reduce
+}
+
+declare module 'fns.js/fp/reverse' {
+  import { reverse } from 'fns.js/fp'
+  export default reverse
+}
+
+declare module 'fns.js/fp/takeRight' {
+  import { takeRight } from 'fns.js/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/fp/isArrayLike' {
+  import { isArrayLike } from 'fns.js/fp'
+  export default isArrayLike
+}
+
+declare module 'fns.js/fp/castArray/index' {
+  import { castArray } from 'fns.js/fp'
+  export default castArray
+}
+
+declare module 'fns.js/fp/fromArray/index' {
+  import { fromArray } from 'fns.js/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/fp/isArray/index' {
+  import { isArray } from 'fns.js/fp'
+  export default isArray
+}
+
+declare module 'fns.js/fp/isBoolean/index' {
+  import { isBoolean } from 'fns.js/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/fp/isDate/index' {
+  import { isDate } from 'fns.js/fp'
+  export default isDate
+}
+
+declare module 'fns.js/fp/isError/index' {
+  import { isError } from 'fns.js/fp'
+  export default isError
+}
+
+declare module 'fns.js/fp/isFunction/index' {
+  import { isFunction } from 'fns.js/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/fp/isLength/index' {
+  import { isLength } from 'fns.js/fp'
+  export default isLength
+}
+
+declare module 'fns.js/fp/isNull/index' {
+  import { isNull } from 'fns.js/fp'
+  export default isNull
+}
+
+declare module 'fns.js/fp/isNumber/index' {
+  import { isNumber } from 'fns.js/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/fp/isObject/index' {
+  import { isObject } from 'fns.js/fp'
+  export default isObject
+}
+
+declare module 'fns.js/fp/isObjectLike/index' {
+  import { isObjectLike } from 'fns.js/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/fp/isPlainObject/index' {
+  import { isPlainObject } from 'fns.js/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/fp/isRegExp/index' {
+  import { isRegExp } from 'fns.js/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/fp/isString/index' {
+  import { isString } from 'fns.js/fp'
+  export default isString
+}
+
+declare module 'fns.js/fp/filter/index' {
+  import { filter } from 'fns.js/fp'
+  export default filter
+}
+
+declare module 'fns.js/fp/last/index' {
+  import { last } from 'fns.js/fp'
+  export default last
+}
+
+declare module 'fns.js/fp/map/index' {
+  import { map } from 'fns.js/fp'
+  export default map
+}
+
+declare module 'fns.js/fp/max/index' {
+  import { max } from 'fns.js/fp'
+  export default max
+}
+
+declare module 'fns.js/fp/pull/index' {
+  import { pull } from 'fns.js/fp'
+  export default pull
+}
+
+declare module 'fns.js/fp/reduce/index' {
+  import { reduce } from 'fns.js/fp'
+  export default reduce
+}
+
+declare module 'fns.js/fp/reverse/index' {
+  import { reverse } from 'fns.js/fp'
+  export default reverse
+}
+
+declare module 'fns.js/fp/takeRight/index' {
+  import { takeRight } from 'fns.js/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/fp/isArrayLike/index' {
+  import { isArrayLike } from 'fns.js/fp'
+  export default isArrayLike
+}
+
+declare module 'fns.js/fp/castArray/index.js' {
+  import { castArray } from 'fns.js/fp'
+  export default castArray
+}
+
+declare module 'fns.js/fp/fromArray/index.js' {
+  import { fromArray } from 'fns.js/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/fp/isArray/index.js' {
+  import { isArray } from 'fns.js/fp'
+  export default isArray
+}
+
+declare module 'fns.js/fp/isBoolean/index.js' {
+  import { isBoolean } from 'fns.js/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/fp/isDate/index.js' {
+  import { isDate } from 'fns.js/fp'
+  export default isDate
+}
+
+declare module 'fns.js/fp/isError/index.js' {
+  import { isError } from 'fns.js/fp'
+  export default isError
+}
+
+declare module 'fns.js/fp/isFunction/index.js' {
+  import { isFunction } from 'fns.js/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/fp/isLength/index.js' {
+  import { isLength } from 'fns.js/fp'
+  export default isLength
+}
+
+declare module 'fns.js/fp/isNull/index.js' {
+  import { isNull } from 'fns.js/fp'
+  export default isNull
+}
+
+declare module 'fns.js/fp/isNumber/index.js' {
+  import { isNumber } from 'fns.js/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/fp/isObject/index.js' {
+  import { isObject } from 'fns.js/fp'
+  export default isObject
+}
+
+declare module 'fns.js/fp/isObjectLike/index.js' {
+  import { isObjectLike } from 'fns.js/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/fp/isPlainObject/index.js' {
+  import { isPlainObject } from 'fns.js/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/fp/isRegExp/index.js' {
+  import { isRegExp } from 'fns.js/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/fp/isString/index.js' {
+  import { isString } from 'fns.js/fp'
+  export default isString
+}
+
+declare module 'fns.js/fp/filter/index.js' {
+  import { filter } from 'fns.js/fp'
+  export default filter
+}
+
+declare module 'fns.js/fp/last/index.js' {
+  import { last } from 'fns.js/fp'
+  export default last
+}
+
+declare module 'fns.js/fp/map/index.js' {
+  import { map } from 'fns.js/fp'
+  export default map
+}
+
+declare module 'fns.js/fp/max/index.js' {
+  import { max } from 'fns.js/fp'
+  export default max
+}
+
+declare module 'fns.js/fp/pull/index.js' {
+  import { pull } from 'fns.js/fp'
+  export default pull
+}
+
+declare module 'fns.js/fp/reduce/index.js' {
+  import { reduce } from 'fns.js/fp'
+  export default reduce
+}
+
+declare module 'fns.js/fp/reverse/index.js' {
+  import { reverse } from 'fns.js/fp'
+  export default reverse
+}
+
+declare module 'fns.js/fp/takeRight/index.js' {
+  import { takeRight } from 'fns.js/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/fp/isArrayLike/index.js' {
+  import { isArrayLike } from 'fns.js/fp'
+  export default isArrayLike
 }
 
 // ECMAScript Module Functions
@@ -450,20 +922,11 @@ declare module 'fns.js/esm' {
   function castArray(value: any): Array<any>
   namespace castArray {}
 
-  function filter(
-    array: Array<any>,
-    callback: (...args: Array<any>) => any
-  ): Array<any>
-  namespace filter {}
-
   function fromArray(arrayLike: any, mapFn: any): Array<any>
   namespace fromArray {}
 
   function isArray(value: any): boolean
   namespace isArray {}
-
-  function isArrayLike(value: any): boolean
-  namespace isArrayLike {}
 
   function isBoolean(value: any): boolean
   namespace isBoolean {}
@@ -501,6 +964,12 @@ declare module 'fns.js/esm' {
   function isString(value: any): boolean
   namespace isString {}
 
+  function filter(
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ): Array<any>
+  namespace filter {}
+
   function last(array: any): boolean
   namespace last {}
 
@@ -510,8 +979,18 @@ declare module 'fns.js/esm' {
   ): Array<any>
   namespace map {}
 
+  function max(array: Array<any>): any
+  namespace max {}
+
   function pull(array: any): boolean
   namespace pull {}
+
+  function reduce(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
+  namespace reduce {}
 
   function reverse(array: any): boolean
   namespace reverse {}
@@ -519,17 +998,15 @@ declare module 'fns.js/esm' {
   function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
+  function isArrayLike(value: any): boolean
+  namespace isArrayLike {}
+
   const MAX_SAFE_INTEGER: number
 }
 
 declare module 'fns.js/esm/castArray' {
   import { castArray } from 'fns.js/esm'
   export default castArray
-}
-
-declare module 'fns.js/esm/filter' {
-  import { filter } from 'fns.js/esm'
-  export default filter
 }
 
 declare module 'fns.js/esm/fromArray' {
@@ -540,11 +1017,6 @@ declare module 'fns.js/esm/fromArray' {
 declare module 'fns.js/esm/isArray' {
   import { isArray } from 'fns.js/esm'
   export default isArray
-}
-
-declare module 'fns.js/esm/isArrayLike' {
-  import { isArrayLike } from 'fns.js/esm'
-  export default isArrayLike
 }
 
 declare module 'fns.js/esm/isBoolean' {
@@ -607,6 +1079,11 @@ declare module 'fns.js/esm/isString' {
   export default isString
 }
 
+declare module 'fns.js/esm/filter' {
+  import { filter } from 'fns.js/esm'
+  export default filter
+}
+
 declare module 'fns.js/esm/last' {
   import { last } from 'fns.js/esm'
   export default last
@@ -617,9 +1094,19 @@ declare module 'fns.js/esm/map' {
   export default map
 }
 
+declare module 'fns.js/esm/max' {
+  import { max } from 'fns.js/esm'
+  export default max
+}
+
 declare module 'fns.js/esm/pull' {
   import { pull } from 'fns.js/esm'
   export default pull
+}
+
+declare module 'fns.js/esm/reduce' {
+  import { reduce } from 'fns.js/esm'
+  export default reduce
 }
 
 declare module 'fns.js/esm/reverse' {
@@ -632,14 +1119,14 @@ declare module 'fns.js/esm/takeRight' {
   export default takeRight
 }
 
+declare module 'fns.js/esm/isArrayLike' {
+  import { isArrayLike } from 'fns.js/esm'
+  export default isArrayLike
+}
+
 declare module 'fns.js/esm/castArray/index' {
   import { castArray } from 'fns.js/esm'
   export default castArray
-}
-
-declare module 'fns.js/esm/filter/index' {
-  import { filter } from 'fns.js/esm'
-  export default filter
 }
 
 declare module 'fns.js/esm/fromArray/index' {
@@ -650,11 +1137,6 @@ declare module 'fns.js/esm/fromArray/index' {
 declare module 'fns.js/esm/isArray/index' {
   import { isArray } from 'fns.js/esm'
   export default isArray
-}
-
-declare module 'fns.js/esm/isArrayLike/index' {
-  import { isArrayLike } from 'fns.js/esm'
-  export default isArrayLike
 }
 
 declare module 'fns.js/esm/isBoolean/index' {
@@ -717,6 +1199,11 @@ declare module 'fns.js/esm/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/esm/filter/index' {
+  import { filter } from 'fns.js/esm'
+  export default filter
+}
+
 declare module 'fns.js/esm/last/index' {
   import { last } from 'fns.js/esm'
   export default last
@@ -727,9 +1214,19 @@ declare module 'fns.js/esm/map/index' {
   export default map
 }
 
+declare module 'fns.js/esm/max/index' {
+  import { max } from 'fns.js/esm'
+  export default max
+}
+
 declare module 'fns.js/esm/pull/index' {
   import { pull } from 'fns.js/esm'
   export default pull
+}
+
+declare module 'fns.js/esm/reduce/index' {
+  import { reduce } from 'fns.js/esm'
+  export default reduce
 }
 
 declare module 'fns.js/esm/reverse/index' {
@@ -742,14 +1239,14 @@ declare module 'fns.js/esm/takeRight/index' {
   export default takeRight
 }
 
+declare module 'fns.js/esm/isArrayLike/index' {
+  import { isArrayLike } from 'fns.js/esm'
+  export default isArrayLike
+}
+
 declare module 'fns.js/esm/castArray/index.js' {
   import { castArray } from 'fns.js/esm'
   export default castArray
-}
-
-declare module 'fns.js/esm/filter/index.js' {
-  import { filter } from 'fns.js/esm'
-  export default filter
 }
 
 declare module 'fns.js/esm/fromArray/index.js' {
@@ -760,11 +1257,6 @@ declare module 'fns.js/esm/fromArray/index.js' {
 declare module 'fns.js/esm/isArray/index.js' {
   import { isArray } from 'fns.js/esm'
   export default isArray
-}
-
-declare module 'fns.js/esm/isArrayLike/index.js' {
-  import { isArrayLike } from 'fns.js/esm'
-  export default isArrayLike
 }
 
 declare module 'fns.js/esm/isBoolean/index.js' {
@@ -827,6 +1319,11 @@ declare module 'fns.js/esm/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/esm/filter/index.js' {
+  import { filter } from 'fns.js/esm'
+  export default filter
+}
+
 declare module 'fns.js/esm/last/index.js' {
   import { last } from 'fns.js/esm'
   export default last
@@ -837,9 +1334,19 @@ declare module 'fns.js/esm/map/index.js' {
   export default map
 }
 
+declare module 'fns.js/esm/max/index.js' {
+  import { max } from 'fns.js/esm'
+  export default max
+}
+
 declare module 'fns.js/esm/pull/index.js' {
   import { pull } from 'fns.js/esm'
   export default pull
+}
+
+declare module 'fns.js/esm/reduce/index.js' {
+  import { reduce } from 'fns.js/esm'
+  export default reduce
 }
 
 declare module 'fns.js/esm/reverse/index.js' {
@@ -852,10 +1359,447 @@ declare module 'fns.js/esm/takeRight/index.js' {
   export default takeRight
 }
 
+declare module 'fns.js/esm/isArrayLike/index.js' {
+  import { isArrayLike } from 'fns.js/esm'
+  export default isArrayLike
+}
+
 // ECMAScript Module FP Functions
 
 declare module 'fns.js/esm/fp' {
+  const castArray: CurriedFn1<any, Array<any>>
+  namespace castArray {}
+
+  const fromArray: CurriedFn2<any, any, Array<any>>
+  namespace fromArray {}
+
+  const isArray: CurriedFn1<any, boolean>
+  namespace isArray {}
+
+  const isBoolean: CurriedFn1<any, boolean>
+  namespace isBoolean {}
+
+  const isDate: CurriedFn1<any, boolean>
+  namespace isDate {}
+
+  const isError: CurriedFn1<any, boolean>
+  namespace isError {}
+
+  const isFunction: CurriedFn1<any, boolean>
+  namespace isFunction {}
+
+  const isLength: CurriedFn1<any, boolean>
+  namespace isLength {}
+
+  const isNull: CurriedFn1<any, boolean>
+  namespace isNull {}
+
+  const isNumber: CurriedFn1<any, boolean>
+  namespace isNumber {}
+
+  const isObject: CurriedFn1<any, boolean>
+  namespace isObject {}
+
+  const isObjectLike: CurriedFn1<any, boolean>
+  namespace isObjectLike {}
+
+  const isPlainObject: CurriedFn1<any, boolean>
+  namespace isPlainObject {}
+
+  const isRegExp: CurriedFn1<any, boolean>
+  namespace isRegExp {}
+
+  const isString: CurriedFn1<any, boolean>
+  namespace isString {}
+
+  const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
+  namespace filter {}
+
+  const last: CurriedFn1<any, boolean>
+  namespace last {}
+
+  const map: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
+  namespace map {}
+
+  const max: CurriedFn1<Array<any>, any>
+  namespace max {}
+
+  const pull: CurriedFn1<any, boolean>
+  namespace pull {}
+
+  const reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>
+  namespace reduce {}
+
+  const reverse: CurriedFn1<any, boolean>
+  namespace reverse {}
+
+  const takeRight: CurriedFn2<number, Array<any>, Array<any>>
+  namespace takeRight {}
+
+  const isArrayLike: CurriedFn1<any, boolean>
+  namespace isArrayLike {}
+
   const MAX_SAFE_INTEGER: number
+}
+
+declare module 'fns.js/esm/fp/castArray' {
+  import { castArray } from 'fns.js/esm/fp'
+  export default castArray
+}
+
+declare module 'fns.js/esm/fp/fromArray' {
+  import { fromArray } from 'fns.js/esm/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/esm/fp/isArray' {
+  import { isArray } from 'fns.js/esm/fp'
+  export default isArray
+}
+
+declare module 'fns.js/esm/fp/isBoolean' {
+  import { isBoolean } from 'fns.js/esm/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/esm/fp/isDate' {
+  import { isDate } from 'fns.js/esm/fp'
+  export default isDate
+}
+
+declare module 'fns.js/esm/fp/isError' {
+  import { isError } from 'fns.js/esm/fp'
+  export default isError
+}
+
+declare module 'fns.js/esm/fp/isFunction' {
+  import { isFunction } from 'fns.js/esm/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/esm/fp/isLength' {
+  import { isLength } from 'fns.js/esm/fp'
+  export default isLength
+}
+
+declare module 'fns.js/esm/fp/isNull' {
+  import { isNull } from 'fns.js/esm/fp'
+  export default isNull
+}
+
+declare module 'fns.js/esm/fp/isNumber' {
+  import { isNumber } from 'fns.js/esm/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/esm/fp/isObject' {
+  import { isObject } from 'fns.js/esm/fp'
+  export default isObject
+}
+
+declare module 'fns.js/esm/fp/isObjectLike' {
+  import { isObjectLike } from 'fns.js/esm/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/esm/fp/isPlainObject' {
+  import { isPlainObject } from 'fns.js/esm/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/esm/fp/isRegExp' {
+  import { isRegExp } from 'fns.js/esm/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/esm/fp/isString' {
+  import { isString } from 'fns.js/esm/fp'
+  export default isString
+}
+
+declare module 'fns.js/esm/fp/filter' {
+  import { filter } from 'fns.js/esm/fp'
+  export default filter
+}
+
+declare module 'fns.js/esm/fp/last' {
+  import { last } from 'fns.js/esm/fp'
+  export default last
+}
+
+declare module 'fns.js/esm/fp/map' {
+  import { map } from 'fns.js/esm/fp'
+  export default map
+}
+
+declare module 'fns.js/esm/fp/max' {
+  import { max } from 'fns.js/esm/fp'
+  export default max
+}
+
+declare module 'fns.js/esm/fp/pull' {
+  import { pull } from 'fns.js/esm/fp'
+  export default pull
+}
+
+declare module 'fns.js/esm/fp/reduce' {
+  import { reduce } from 'fns.js/esm/fp'
+  export default reduce
+}
+
+declare module 'fns.js/esm/fp/reverse' {
+  import { reverse } from 'fns.js/esm/fp'
+  export default reverse
+}
+
+declare module 'fns.js/esm/fp/takeRight' {
+  import { takeRight } from 'fns.js/esm/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isArrayLike' {
+  import { isArrayLike } from 'fns.js/esm/fp'
+  export default isArrayLike
+}
+
+declare module 'fns.js/esm/fp/castArray/index' {
+  import { castArray } from 'fns.js/esm/fp'
+  export default castArray
+}
+
+declare module 'fns.js/esm/fp/fromArray/index' {
+  import { fromArray } from 'fns.js/esm/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/esm/fp/isArray/index' {
+  import { isArray } from 'fns.js/esm/fp'
+  export default isArray
+}
+
+declare module 'fns.js/esm/fp/isBoolean/index' {
+  import { isBoolean } from 'fns.js/esm/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/esm/fp/isDate/index' {
+  import { isDate } from 'fns.js/esm/fp'
+  export default isDate
+}
+
+declare module 'fns.js/esm/fp/isError/index' {
+  import { isError } from 'fns.js/esm/fp'
+  export default isError
+}
+
+declare module 'fns.js/esm/fp/isFunction/index' {
+  import { isFunction } from 'fns.js/esm/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/esm/fp/isLength/index' {
+  import { isLength } from 'fns.js/esm/fp'
+  export default isLength
+}
+
+declare module 'fns.js/esm/fp/isNull/index' {
+  import { isNull } from 'fns.js/esm/fp'
+  export default isNull
+}
+
+declare module 'fns.js/esm/fp/isNumber/index' {
+  import { isNumber } from 'fns.js/esm/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/esm/fp/isObject/index' {
+  import { isObject } from 'fns.js/esm/fp'
+  export default isObject
+}
+
+declare module 'fns.js/esm/fp/isObjectLike/index' {
+  import { isObjectLike } from 'fns.js/esm/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/esm/fp/isPlainObject/index' {
+  import { isPlainObject } from 'fns.js/esm/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/esm/fp/isRegExp/index' {
+  import { isRegExp } from 'fns.js/esm/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/esm/fp/isString/index' {
+  import { isString } from 'fns.js/esm/fp'
+  export default isString
+}
+
+declare module 'fns.js/esm/fp/filter/index' {
+  import { filter } from 'fns.js/esm/fp'
+  export default filter
+}
+
+declare module 'fns.js/esm/fp/last/index' {
+  import { last } from 'fns.js/esm/fp'
+  export default last
+}
+
+declare module 'fns.js/esm/fp/map/index' {
+  import { map } from 'fns.js/esm/fp'
+  export default map
+}
+
+declare module 'fns.js/esm/fp/max/index' {
+  import { max } from 'fns.js/esm/fp'
+  export default max
+}
+
+declare module 'fns.js/esm/fp/pull/index' {
+  import { pull } from 'fns.js/esm/fp'
+  export default pull
+}
+
+declare module 'fns.js/esm/fp/reduce/index' {
+  import { reduce } from 'fns.js/esm/fp'
+  export default reduce
+}
+
+declare module 'fns.js/esm/fp/reverse/index' {
+  import { reverse } from 'fns.js/esm/fp'
+  export default reverse
+}
+
+declare module 'fns.js/esm/fp/takeRight/index' {
+  import { takeRight } from 'fns.js/esm/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isArrayLike/index' {
+  import { isArrayLike } from 'fns.js/esm/fp'
+  export default isArrayLike
+}
+
+declare module 'fns.js/esm/fp/castArray/index.js' {
+  import { castArray } from 'fns.js/esm/fp'
+  export default castArray
+}
+
+declare module 'fns.js/esm/fp/fromArray/index.js' {
+  import { fromArray } from 'fns.js/esm/fp'
+  export default fromArray
+}
+
+declare module 'fns.js/esm/fp/isArray/index.js' {
+  import { isArray } from 'fns.js/esm/fp'
+  export default isArray
+}
+
+declare module 'fns.js/esm/fp/isBoolean/index.js' {
+  import { isBoolean } from 'fns.js/esm/fp'
+  export default isBoolean
+}
+
+declare module 'fns.js/esm/fp/isDate/index.js' {
+  import { isDate } from 'fns.js/esm/fp'
+  export default isDate
+}
+
+declare module 'fns.js/esm/fp/isError/index.js' {
+  import { isError } from 'fns.js/esm/fp'
+  export default isError
+}
+
+declare module 'fns.js/esm/fp/isFunction/index.js' {
+  import { isFunction } from 'fns.js/esm/fp'
+  export default isFunction
+}
+
+declare module 'fns.js/esm/fp/isLength/index.js' {
+  import { isLength } from 'fns.js/esm/fp'
+  export default isLength
+}
+
+declare module 'fns.js/esm/fp/isNull/index.js' {
+  import { isNull } from 'fns.js/esm/fp'
+  export default isNull
+}
+
+declare module 'fns.js/esm/fp/isNumber/index.js' {
+  import { isNumber } from 'fns.js/esm/fp'
+  export default isNumber
+}
+
+declare module 'fns.js/esm/fp/isObject/index.js' {
+  import { isObject } from 'fns.js/esm/fp'
+  export default isObject
+}
+
+declare module 'fns.js/esm/fp/isObjectLike/index.js' {
+  import { isObjectLike } from 'fns.js/esm/fp'
+  export default isObjectLike
+}
+
+declare module 'fns.js/esm/fp/isPlainObject/index.js' {
+  import { isPlainObject } from 'fns.js/esm/fp'
+  export default isPlainObject
+}
+
+declare module 'fns.js/esm/fp/isRegExp/index.js' {
+  import { isRegExp } from 'fns.js/esm/fp'
+  export default isRegExp
+}
+
+declare module 'fns.js/esm/fp/isString/index.js' {
+  import { isString } from 'fns.js/esm/fp'
+  export default isString
+}
+
+declare module 'fns.js/esm/fp/filter/index.js' {
+  import { filter } from 'fns.js/esm/fp'
+  export default filter
+}
+
+declare module 'fns.js/esm/fp/last/index.js' {
+  import { last } from 'fns.js/esm/fp'
+  export default last
+}
+
+declare module 'fns.js/esm/fp/map/index.js' {
+  import { map } from 'fns.js/esm/fp'
+  export default map
+}
+
+declare module 'fns.js/esm/fp/max/index.js' {
+  import { max } from 'fns.js/esm/fp'
+  export default max
+}
+
+declare module 'fns.js/esm/fp/pull/index.js' {
+  import { pull } from 'fns.js/esm/fp'
+  export default pull
+}
+
+declare module 'fns.js/esm/fp/reduce/index.js' {
+  import { reduce } from 'fns.js/esm/fp'
+  export default reduce
+}
+
+declare module 'fns.js/esm/fp/reverse/index.js' {
+  import { reverse } from 'fns.js/esm/fp'
+  export default reverse
+}
+
+declare module 'fns.js/esm/fp/takeRight/index.js' {
+  import { takeRight } from 'fns.js/esm/fp'
+  export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isArrayLike/index.js' {
+  import { isArrayLike } from 'fns.js/esm/fp'
+  export default isArrayLike
 }
 
 // dateFns Global Interface
@@ -863,13 +1807,9 @@ declare module 'fns.js/esm/fp' {
 interface dateFns {
   castArray(value: any): Array<any>
 
-  filter(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
-
   fromArray(arrayLike: any, mapFn: any): Array<any>
 
   isArray(value: any): boolean
-
-  isArrayLike(value: any): boolean
 
   isBoolean(value: any): boolean
 
@@ -895,15 +1835,27 @@ interface dateFns {
 
   isString(value: any): boolean
 
+  filter(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
+
   last(array: any): boolean
 
   map(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 
+  max(array: Array<any>): any
+
   pull(array: any): boolean
+
+  reduce(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
 
   reverse(array: any): boolean
 
   takeRight(array: Array<any>, n?: number): Array<any>
+
+  isArrayLike(value: any): boolean
 
   MAX_SAFE_INTEGER: number
 }
