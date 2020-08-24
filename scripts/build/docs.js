@@ -11,6 +11,7 @@
 const fsp = require('fs-promise')
 const path = require('path')
 const cloneDeep = require('lodash.clonedeep')
+const _ = require('lodash')
 const jsDocParser = require('jsdoc-to-markdown')
 const listFns = require('../_lib/listFns')
 const docsConfig = require('../../docs/index.js')
@@ -30,15 +31,15 @@ generateDocsFromSource()
 function generateDocsFromSource() {
   const docs = listFns()
     .map(
-      fn =>
+      (fn) =>
         jsDocParser.getTemplateDataSync({
           files: fn.fullPath,
-          'no-cache': true
+          'no-cache': true,
         })[0]
     )
-    .map(doc => {
+    .map((doc) => {
       const pureTag =
-        doc.customTags && doc.customTags.find(t => t.tag === 'pure')
+        doc.customTags && doc.customTags.find((t) => t.tag === 'pure')
       const pure = (pureTag && pureTag.value) !== 'false'
       return {
         type: 'jsdoc',
@@ -48,10 +49,22 @@ function generateDocsFromSource() {
         title: doc.name,
         description: doc.summary,
         content: doc,
-        pure
+        pure,
       }
     })
-    .reduce((array, doc) => array.concat(generateFnDoc(doc)).concat([]), [])
+    .reduce(
+      (array, doc) =>
+        array
+          .concat(generateFnDoc(doc))
+          .concat(
+            doc.pure
+              ? [generateFPFnDoc(doc)].concat(
+                  generateFPFnWithOptionsDoc(doc) || []
+                )
+              : []
+          ),
+      []
+    )
 
   return Promise.resolve(docs)
 }
@@ -69,8 +82,8 @@ function generatedDocsObj(docs) {
  */
 function injectStaticDocsToDocsObj(docsFileObj) {
   return getListOfStaticDocs()
-    .then(staticDocs => {
-      staticDocs.forEach(staticDoc => {
+    .then((staticDocs) => {
+      staticDocs.forEach((staticDoc) => {
         docsFileObj[staticDoc.category].push(staticDoc)
       })
       return docsFileObj
@@ -83,8 +96,8 @@ function injectStaticDocsToDocsObj(docsFileObj) {
  */
 function injectSharedDocsToDocsObj(docsFileObj) {
   return generateSharedDocs()
-    .then(sharedDocs => {
-      sharedDocs.forEach(sharedDoc => {
+    .then((sharedDocs) => {
+      sharedDocs.forEach((sharedDoc) => {
         docsFileObj[sharedDoc.category].push(sharedDoc)
       })
       return docsFileObj
@@ -134,11 +147,11 @@ function buildGroupsTemplate(groups) {
  */
 function getListOfStaticDocs() {
   return Promise.all(
-    docsConfig.staticDocs.map(staticDoc => {
+    docsConfig.staticDocs.map((staticDoc) => {
       return fsp
         .readFile(staticDoc.path)
-        .then(docContent => docContent.toString())
-        .then(content => Object.assign({ content }, staticDoc))
+        .then((docContent) => docContent.toString())
+        .then((content) => Object.assign({ content }, staticDoc))
         .catch(reportErrors)
     })
   )
@@ -150,13 +163,13 @@ function getListOfStaticDocs() {
 function generateSharedDocs() {
   const docs = docsConfig.sharedDocs
     .map(
-      fn =>
+      (fn) =>
         jsDocParser.getTemplateDataSync({
           files: fn.fullPath,
-          'no-cache': true
+          'no-cache': true,
         })[0]
     )
-    .map(doc => ({
+    .map((doc) => ({
       type: 'jsdoc',
       kind: 'typedef',
       urlId: doc.name,
@@ -164,7 +177,7 @@ function generateSharedDocs() {
       title: doc.name,
       description: doc.summary,
       content: doc,
-      properties: paramsToTree(doc.properties)
+      properties: paramsToTree(doc.properties),
     }))
 
   return Promise.resolve(docs)
@@ -186,7 +199,83 @@ function generateFnDoc(dirtyDoc) {
     ),
     usage: generateUsage(title, isFPFn),
     usageTabs: generateUsageTabs(isFPFn),
-    syntax: generateSyntaxString(title, args, isFPFn)
+    syntax: generateSyntaxString(title, args, isFPFn),
+  })
+}
+
+function generateFPFnDoc(dirtyDoc) {
+  const doc = cloneDeep(dirtyDoc)
+
+  const isFPFn = true
+  const { urlId, title } = doc
+  const exceptions = _.get(doc, 'content.exceptions', []).filter(
+    (exception) => !exception.description.includes('options.')
+  )
+  const params = doc.content.params
+    .filter((param) => !param.name.startsWith('options'))
+    .reverse()
+  const args = paramsToTree(params)
+
+  return Object.assign(doc, {
+    isFPFn,
+    args,
+    generatedFrom: title,
+    urlId: `fp/${urlId}`,
+    relatedDocs: Object.assign(
+      { default: urlId, fp: `fp/${urlId}` },
+      withOptions(args) ? { fpWithOptions: `fp/${urlId}WithOptions` } : {}
+    ),
+    usage: generateUsage(title, isFPFn),
+    usageTabs: generateUsageTabs(isFPFn),
+    syntax: generateSyntaxString(title, args, isFPFn),
+
+    content: Object.assign(doc.content, {
+      exceptions,
+      params,
+      examples: 'See [FP Guide](https://fnsjs.dev/fp) for more information',
+    }),
+  })
+}
+
+function generateFPFnWithOptionsDoc(dirtyDoc) {
+  const doc = cloneDeep(dirtyDoc)
+
+  const isFPFn = true
+  const { urlId, title } = doc
+  const params = doc.content.params
+    .map((param) => {
+      if (!param.name.includes('.')) {
+        param.optional = false
+      }
+      return param
+    })
+    .reverse()
+  const args = paramsToTree(params)
+
+  if (!withOptions(args)) return
+
+  return Object.assign(doc, {
+    isFPFn,
+    args,
+    generatedFrom: title,
+    title: `${title}WithOptions`,
+    urlId: `fp/${urlId}WithOptions`,
+    relatedDocs: {
+      default: urlId,
+      fp: `fp/${urlId}`,
+      fpWithOptions: `fp/${urlId}WithOptions`,
+    },
+    usage: generateUsage(title, isFPFn),
+    usageTabs: generateUsageTabs(isFPFn),
+    syntax: generateSyntaxString(title, args, isFPFn),
+
+    content: Object.assign(doc.content, {
+      params,
+      id: `${doc.content.id}WithOptions`,
+      longname: `${doc.content.longname}WithOptions`,
+      name: `${doc.content.name}WithOptions`,
+      examples: 'See [FP Guide](https://fnsjs.dev/fp) for more information',
+    }),
   })
 }
 
@@ -206,21 +295,22 @@ function generateUsage(name, isFPFn) {
   let usage = {
     commonjs: {
       title: 'CommonJS',
-      code: `var ${name} = require('fns.js${submodule}/${name}')`
+      code: `var ${name} = require('fns.js${submodule}/${name}')`,
     },
 
     es2015: {
       title: 'ES 2015',
-      code: `import ${name} from 'fns.js${submodule}/${name}'`
+      code: `import ${name} from 'fns.js${submodule}/${name}'`,
     },
 
     esm: {
       title: 'ESM',
-      code: `import { ${name} } from 'fns.js${submodule &&
-        `/esm/${submodule}`}'`,
+      code: `import { ${name} } from 'fns.js${
+        submodule && `/esm/${submodule}`
+      }'`,
       text:
-        'See [ECMAScript Modules guide](https://fnsjs.dev/docs/) for more information'
-    }
+        'See [ECMAScript Modules guide](https://fnsjs.dev/docs/) for more information',
+    },
   }
 
   return usage
@@ -239,7 +329,7 @@ function paramsToTree(dirtyParams) {
   }, {})
 
   return params
-    .map(param => {
+    .map((param) => {
       const { name, isProperty } = param
 
       const indexOfDot = name.indexOf('.')
@@ -259,7 +349,7 @@ function paramsToTree(dirtyParams) {
 
       return param
     })
-    .filter(param => !param.isProperty)
+    .filter((param) => !param.isProperty)
 }
 
 function generateSyntaxString(name, args, isFPFn) {
@@ -269,7 +359,7 @@ function generateSyntaxString(name, args, isFPFn) {
     return args.reduce((acc, arg) => acc.concat(`(${arg.name})`), name)
   } else {
     const argsString = args
-      .map(arg => (arg.optional ? `[${arg.name}]` : arg.name))
+      .map((arg) => (arg.optional ? `[${arg.name}]` : arg.name))
       .join(', ')
     return `${name}(${argsString})`
   }

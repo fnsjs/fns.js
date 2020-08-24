@@ -4,16 +4,9 @@
 declare module.exports: {
   castArray: (value: any) => Array<any>,
 
-  filter: (
-    array: Array<any>,
-    callback: (...args: Array<any>) => any
-  ) => Array<any>,
-
   fromArray: (arrayLike: any, mapFn: any) => Array<any>,
 
   isArray: (value: any) => boolean,
-
-  isArrayLike: (value: any) => boolean,
 
   isBoolean: (value: any) => boolean,
 
@@ -39,6 +32,11 @@ declare module.exports: {
 
   isString: (value: any) => boolean,
 
+  filter: (
+    array: Array<any>,
+    callback: (...args: Array<any>) => any
+  ) => Array<any>,
+
   last: (array: any) => boolean,
 
   map: (
@@ -46,11 +44,21 @@ declare module.exports: {
     callback: (...args: Array<any>) => any
   ) => Array<any>,
 
+  max: (array: Array<any>) => any,
+
   pull: (array: any) => boolean,
+
+  reduce: (
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ) => any,
 
   reverse: (array: any) => boolean,
 
   takeRight: (array: Array<any>, n?: number) => Array<any>,
+
+  isArrayLike: (value: any) => boolean,
 
   MAX_SAFE_INTEGER: number,
 }
