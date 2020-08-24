@@ -51,6 +51,7 @@ declare module.exports: {
   last: CurriedFn1<any, boolean>,
   map: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>,
   max: CurriedFn1<Array<any>, any>,
+  min: CurriedFn1<Array<any>, any>,
   pull: CurriedFn1<any, boolean>,
   reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>,
   reverse: CurriedFn1<any, boolean>,

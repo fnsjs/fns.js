@@ -96,6 +96,9 @@ declare module 'fns.js' {
   function max(array: Array<any>): any
   namespace max {}
 
+  function min(array: Array<any>): any
+  namespace min {}
+
   function pull(array: any): boolean
   namespace pull {}
 
@@ -211,6 +214,11 @@ declare module 'fns.js/map' {
 declare module 'fns.js/max' {
   import { max } from 'fns.js'
   export default max
+}
+
+declare module 'fns.js/min' {
+  import { min } from 'fns.js'
+  export default min
 }
 
 declare module 'fns.js/pull' {
@@ -333,6 +341,11 @@ declare module 'fns.js/max/index' {
   export default max
 }
 
+declare module 'fns.js/min/index' {
+  import { min } from 'fns.js'
+  export default min
+}
+
 declare module 'fns.js/pull/index' {
   import { pull } from 'fns.js'
   export default pull
@@ -453,6 +466,11 @@ declare module 'fns.js/max/index.js' {
   export default max
 }
 
+declare module 'fns.js/min/index.js' {
+  import { min } from 'fns.js'
+  export default min
+}
+
 declare module 'fns.js/pull/index.js' {
   import { pull } from 'fns.js'
   export default pull
@@ -537,6 +555,9 @@ declare module 'fns.js/fp' {
 
   const max: CurriedFn1<Array<any>, any>
   namespace max {}
+
+  const min: CurriedFn1<Array<any>, any>
+  namespace min {}
 
   const pull: CurriedFn1<any, boolean>
   namespace pull {}
@@ -649,6 +670,11 @@ declare module 'fns.js/fp/map' {
 declare module 'fns.js/fp/max' {
   import { max } from 'fns.js/fp'
   export default max
+}
+
+declare module 'fns.js/fp/min' {
+  import { min } from 'fns.js/fp'
+  export default min
 }
 
 declare module 'fns.js/fp/pull' {
@@ -771,6 +797,11 @@ declare module 'fns.js/fp/max/index' {
   export default max
 }
 
+declare module 'fns.js/fp/min/index' {
+  import { min } from 'fns.js/fp'
+  export default min
+}
+
 declare module 'fns.js/fp/pull/index' {
   import { pull } from 'fns.js/fp'
   export default pull
@@ -891,6 +922,11 @@ declare module 'fns.js/fp/max/index.js' {
   export default max
 }
 
+declare module 'fns.js/fp/min/index.js' {
+  import { min } from 'fns.js/fp'
+  export default min
+}
+
 declare module 'fns.js/fp/pull/index.js' {
   import { pull } from 'fns.js/fp'
   export default pull
@@ -981,6 +1017,9 @@ declare module 'fns.js/esm' {
 
   function max(array: Array<any>): any
   namespace max {}
+
+  function min(array: Array<any>): any
+  namespace min {}
 
   function pull(array: any): boolean
   namespace pull {}
@@ -1097,6 +1136,11 @@ declare module 'fns.js/esm/map' {
 declare module 'fns.js/esm/max' {
   import { max } from 'fns.js/esm'
   export default max
+}
+
+declare module 'fns.js/esm/min' {
+  import { min } from 'fns.js/esm'
+  export default min
 }
 
 declare module 'fns.js/esm/pull' {
@@ -1219,6 +1263,11 @@ declare module 'fns.js/esm/max/index' {
   export default max
 }
 
+declare module 'fns.js/esm/min/index' {
+  import { min } from 'fns.js/esm'
+  export default min
+}
+
 declare module 'fns.js/esm/pull/index' {
   import { pull } from 'fns.js/esm'
   export default pull
@@ -1339,6 +1388,11 @@ declare module 'fns.js/esm/max/index.js' {
   export default max
 }
 
+declare module 'fns.js/esm/min/index.js' {
+  import { min } from 'fns.js/esm'
+  export default min
+}
+
 declare module 'fns.js/esm/pull/index.js' {
   import { pull } from 'fns.js/esm'
   export default pull
@@ -1423,6 +1477,9 @@ declare module 'fns.js/esm/fp' {
 
   const max: CurriedFn1<Array<any>, any>
   namespace max {}
+
+  const min: CurriedFn1<Array<any>, any>
+  namespace min {}
 
   const pull: CurriedFn1<any, boolean>
   namespace pull {}
@@ -1535,6 +1592,11 @@ declare module 'fns.js/esm/fp/map' {
 declare module 'fns.js/esm/fp/max' {
   import { max } from 'fns.js/esm/fp'
   export default max
+}
+
+declare module 'fns.js/esm/fp/min' {
+  import { min } from 'fns.js/esm/fp'
+  export default min
 }
 
 declare module 'fns.js/esm/fp/pull' {
@@ -1657,6 +1719,11 @@ declare module 'fns.js/esm/fp/max/index' {
   export default max
 }
 
+declare module 'fns.js/esm/fp/min/index' {
+  import { min } from 'fns.js/esm/fp'
+  export default min
+}
+
 declare module 'fns.js/esm/fp/pull/index' {
   import { pull } from 'fns.js/esm/fp'
   export default pull
@@ -1777,6 +1844,11 @@ declare module 'fns.js/esm/fp/max/index.js' {
   export default max
 }
 
+declare module 'fns.js/esm/fp/min/index.js' {
+  import { min } from 'fns.js/esm/fp'
+  export default min
+}
+
 declare module 'fns.js/esm/fp/pull/index.js' {
   import { pull } from 'fns.js/esm/fp'
   export default pull
@@ -1842,6 +1914,8 @@ interface dateFns {
   map(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 
   max(array: Array<any>): any
+
+  min(array: Array<any>): any
 
   pull(array: any): boolean
 
