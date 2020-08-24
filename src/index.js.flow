@@ -46,6 +46,8 @@ declare module.exports: {
 
   max: (array: Array<any>) => any,
 
+  min: (array: Array<any>) => any,
+
   pull: (array: any) => boolean,
 
   reduce: (

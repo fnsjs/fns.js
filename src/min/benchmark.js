@@ -2,15 +2,15 @@
 /* eslint-env mocha */
 /* global benchmark */
 
-import max from '.'
+import min from '.'
 import lodash from 'lodash'
 
-suite('max', function () {
+suite('min', function () {
   benchmark('fns.js', function () {
-    return max([1, 2, 3, 4, 5, 6, 7, 8])
+    return min([1, 2, 3, 4, 5, 6, 7, 8])
   })
 
   benchmark('lodash', function () {
-    return lodash.max([1, 2, 3, 4, 5, 6, 7, 8])
+    return lodash.min([1, 2, 3, 4, 5, 6, 7, 8])
   })
 })
