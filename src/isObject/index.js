@@ -13,7 +13,7 @@
  * isObject({})
  * // => true
  *
- *  * isObject({})
+ * isObject({})
  * // => true
  *
  * isObject(null)

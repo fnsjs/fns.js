@@ -22,7 +22,7 @@
  * //=> 20
  *
  */
-export default function pull(array, reducer, initialValue) {
+export default function reduce(array, reducer, initialValue) {
   if (!reducer) {
     return array[0]
   }

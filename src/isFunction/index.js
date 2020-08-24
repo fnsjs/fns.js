@@ -15,7 +15,7 @@ import getObjectType from '../utils/getObjectType'
  * isFunction(()=>{})
  * // => true
  *
- *  * isFunction({})
+ * isFunction({})
  * // => false
  */
 export default function isFunction(value) {

@@ -24,7 +24,7 @@ const fnToString = Function.prototype.toString
  * isPlainObject({a:1, b:2})
  * // => true
  *
- *  * isPlainObject(Object.create(null))
+ * isPlainObject(Object.create(null))
  * // => true
  *
  * isPlainObject([1, 2, 3])

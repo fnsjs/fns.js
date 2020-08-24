@@ -15,7 +15,7 @@ import getObjectType from '../utils/getObjectType'
  * isRegExp(/a/)
  * // => true
  *
- *  * isRegExp("hello")
+ * isRegExp("hello")
  * // => false
  */
 export default function isRegExp(value) {
