@@ -11,7 +11,6 @@ import isArray from '../isArray'
  *
  * @param {Array} array The array to iterate over.
  * @returns {*} Returns the maximum value.
- * @throws {TypeError} should be Array value.
  *
  * @example
  *
@@ -23,10 +22,6 @@ import isArray from '../isArray'
  */
 
 export default function max(array) {
-  if (!isArray(array)) {
-    throw new TypeError(`${Array} should be Array value!`)
-  }
-
   return reduce(array, function (acc, value) {
     if (acc < value) {
       return value
