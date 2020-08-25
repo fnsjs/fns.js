@@ -23,19 +23,13 @@
  *
  */
 export default function reduce(array, reducer, initialValue) {
-  if (!reducer) {
-    return array[0]
-  }
-
-  const length = array.length
-  let i, result
+  var length = array.length,
+    i = 0,
+    result = initialValue
 
   if (initialValue === undefined) {
     i = 1
     result = array[0]
-  } else {
-    i = 0
-    result = initialValue
   }
 
   for (; i < length; i++) {

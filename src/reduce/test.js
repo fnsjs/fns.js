@@ -7,8 +7,8 @@ import reduce from '.'
 describe('reduce', function () {
   const array = [1, 2, 3]
 
-  it('should use the first element of a collection as the default `accumulator`', function () {
-    assert.strictEqual(reduce(array), 1)
+  it("throws TypeError exception if reducer isn't provided", function () {
+    assert.throws(reduce.bind(array), TypeError)
   })
 
   it('should reduce a list of items', function () {
