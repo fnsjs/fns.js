@@ -1,6 +1,7 @@
 // This file is generated automatically by `scripts/build/indices.js`. Please, don't change it.
 
 export { default as castArray } from './castArray/index.js'
+export { default as compact } from './compact/index.js'
 export { default as filter } from './filter/index.js'
 export { default as fromArray } from './fromArray/index.js'
 export { default as isArray } from './isArray/index.js'

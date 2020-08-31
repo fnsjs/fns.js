@@ -78,6 +78,9 @@ declare module 'fns.js' {
   function isString(value: any): boolean
   namespace isString {}
 
+  function compact(array: Array<any>): any
+  namespace compact {}
+
   function filter(
     array: Array<any>,
     callback: (...args: Array<any>) => any
@@ -194,6 +197,11 @@ declare module 'fns.js/isRegExp' {
 declare module 'fns.js/isString' {
   import { isString } from 'fns.js'
   export default isString
+}
+
+declare module 'fns.js/compact' {
+  import { compact } from 'fns.js'
+  export default compact
 }
 
 declare module 'fns.js/filter' {
@@ -321,6 +329,11 @@ declare module 'fns.js/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/compact/index' {
+  import { compact } from 'fns.js'
+  export default compact
+}
+
 declare module 'fns.js/filter/index' {
   import { filter } from 'fns.js'
   export default filter
@@ -446,6 +459,11 @@ declare module 'fns.js/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/compact/index.js' {
+  import { compact } from 'fns.js'
+  export default compact
+}
+
 declare module 'fns.js/filter/index.js' {
   import { filter } from 'fns.js'
   export default filter
@@ -543,6 +561,9 @@ declare module 'fns.js/fp' {
 
   const isString: CurriedFn1<any, boolean>
   namespace isString {}
+
+  const compact: CurriedFn1<Array<any>, any>
+  namespace compact {}
 
   const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
   namespace filter {}
@@ -650,6 +671,11 @@ declare module 'fns.js/fp/isRegExp' {
 declare module 'fns.js/fp/isString' {
   import { isString } from 'fns.js/fp'
   export default isString
+}
+
+declare module 'fns.js/fp/compact' {
+  import { compact } from 'fns.js/fp'
+  export default compact
 }
 
 declare module 'fns.js/fp/filter' {
@@ -777,6 +803,11 @@ declare module 'fns.js/fp/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/fp/compact/index' {
+  import { compact } from 'fns.js/fp'
+  export default compact
+}
+
 declare module 'fns.js/fp/filter/index' {
   import { filter } from 'fns.js/fp'
   export default filter
@@ -902,6 +933,11 @@ declare module 'fns.js/fp/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/fp/compact/index.js' {
+  import { compact } from 'fns.js/fp'
+  export default compact
+}
+
 declare module 'fns.js/fp/filter/index.js' {
   import { filter } from 'fns.js/fp'
   export default filter
@@ -999,6 +1035,9 @@ declare module 'fns.js/esm' {
 
   function isString(value: any): boolean
   namespace isString {}
+
+  function compact(array: Array<any>): any
+  namespace compact {}
 
   function filter(
     array: Array<any>,
@@ -1116,6 +1155,11 @@ declare module 'fns.js/esm/isRegExp' {
 declare module 'fns.js/esm/isString' {
   import { isString } from 'fns.js/esm'
   export default isString
+}
+
+declare module 'fns.js/esm/compact' {
+  import { compact } from 'fns.js/esm'
+  export default compact
 }
 
 declare module 'fns.js/esm/filter' {
@@ -1243,6 +1287,11 @@ declare module 'fns.js/esm/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/esm/compact/index' {
+  import { compact } from 'fns.js/esm'
+  export default compact
+}
+
 declare module 'fns.js/esm/filter/index' {
   import { filter } from 'fns.js/esm'
   export default filter
@@ -1368,6 +1417,11 @@ declare module 'fns.js/esm/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/esm/compact/index.js' {
+  import { compact } from 'fns.js/esm'
+  export default compact
+}
+
 declare module 'fns.js/esm/filter/index.js' {
   import { filter } from 'fns.js/esm'
   export default filter
@@ -1465,6 +1519,9 @@ declare module 'fns.js/esm/fp' {
 
   const isString: CurriedFn1<any, boolean>
   namespace isString {}
+
+  const compact: CurriedFn1<Array<any>, any>
+  namespace compact {}
 
   const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
   namespace filter {}
@@ -1572,6 +1629,11 @@ declare module 'fns.js/esm/fp/isRegExp' {
 declare module 'fns.js/esm/fp/isString' {
   import { isString } from 'fns.js/esm/fp'
   export default isString
+}
+
+declare module 'fns.js/esm/fp/compact' {
+  import { compact } from 'fns.js/esm/fp'
+  export default compact
 }
 
 declare module 'fns.js/esm/fp/filter' {
@@ -1699,6 +1761,11 @@ declare module 'fns.js/esm/fp/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/esm/fp/compact/index' {
+  import { compact } from 'fns.js/esm/fp'
+  export default compact
+}
+
 declare module 'fns.js/esm/fp/filter/index' {
   import { filter } from 'fns.js/esm/fp'
   export default filter
@@ -1824,6 +1891,11 @@ declare module 'fns.js/esm/fp/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/esm/fp/compact/index.js' {
+  import { compact } from 'fns.js/esm/fp'
+  export default compact
+}
+
 declare module 'fns.js/esm/fp/filter/index.js' {
   import { filter } from 'fns.js/esm/fp'
   export default filter
@@ -1906,6 +1978,8 @@ interface dateFns {
   isRegExp(value: any): boolean
 
   isString(value: any): boolean
+
+  compact(array: Array<any>): any
 
   filter(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 

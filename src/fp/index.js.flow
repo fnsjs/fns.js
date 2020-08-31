@@ -47,6 +47,7 @@ declare module.exports: {
   isPlainObject: CurriedFn1<any, boolean>,
   isRegExp: CurriedFn1<any, boolean>,
   isString: CurriedFn1<any, boolean>,
+  compact: CurriedFn1<Array<any>, any>,
   filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>,
   last: CurriedFn1<any, boolean>,
   map: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>,

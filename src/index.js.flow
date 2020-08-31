@@ -32,6 +32,8 @@ declare module.exports: {
 
   isString: (value: any) => boolean,
 
+  compact: (array: Array<any>) => any,
+
   filter: (
     array: Array<any>,
     callback: (...args: Array<any>) => any
