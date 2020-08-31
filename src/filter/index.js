@@ -1,5 +1,3 @@
-import isArray from '../isArray'
-
 /**
  * @name filter
  * @category Array
@@ -21,10 +19,6 @@ import isArray from '../isArray'
  *
  */
 export default function filter(array, callback) {
-  if (!isArray(array)) {
-    return []
-  }
-
   const _array = []
   const arraySize = array.length
   let index = 0
