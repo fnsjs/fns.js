@@ -78,6 +78,9 @@ declare module 'fns.js' {
   function isString(value: any): boolean
   namespace isString {}
 
+  function chunk(array: Array<any>, size: number): any
+  namespace chunk {}
+
   function compact(array: Array<any>): any
   namespace compact {}
 
@@ -197,6 +200,11 @@ declare module 'fns.js/isRegExp' {
 declare module 'fns.js/isString' {
   import { isString } from 'fns.js'
   export default isString
+}
+
+declare module 'fns.js/chunk' {
+  import { chunk } from 'fns.js'
+  export default chunk
 }
 
 declare module 'fns.js/compact' {
@@ -329,6 +337,11 @@ declare module 'fns.js/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/chunk/index' {
+  import { chunk } from 'fns.js'
+  export default chunk
+}
+
 declare module 'fns.js/compact/index' {
   import { compact } from 'fns.js'
   export default compact
@@ -459,6 +472,11 @@ declare module 'fns.js/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/chunk/index.js' {
+  import { chunk } from 'fns.js'
+  export default chunk
+}
+
 declare module 'fns.js/compact/index.js' {
   import { compact } from 'fns.js'
   export default compact
@@ -561,6 +579,9 @@ declare module 'fns.js/fp' {
 
   const isString: CurriedFn1<any, boolean>
   namespace isString {}
+
+  const chunk: CurriedFn2<number, Array<any>, any>
+  namespace chunk {}
 
   const compact: CurriedFn1<Array<any>, any>
   namespace compact {}
@@ -671,6 +692,11 @@ declare module 'fns.js/fp/isRegExp' {
 declare module 'fns.js/fp/isString' {
   import { isString } from 'fns.js/fp'
   export default isString
+}
+
+declare module 'fns.js/fp/chunk' {
+  import { chunk } from 'fns.js/fp'
+  export default chunk
 }
 
 declare module 'fns.js/fp/compact' {
@@ -803,6 +829,11 @@ declare module 'fns.js/fp/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/fp/chunk/index' {
+  import { chunk } from 'fns.js/fp'
+  export default chunk
+}
+
 declare module 'fns.js/fp/compact/index' {
   import { compact } from 'fns.js/fp'
   export default compact
@@ -933,6 +964,11 @@ declare module 'fns.js/fp/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/fp/chunk/index.js' {
+  import { chunk } from 'fns.js/fp'
+  export default chunk
+}
+
 declare module 'fns.js/fp/compact/index.js' {
   import { compact } from 'fns.js/fp'
   export default compact
@@ -1035,6 +1071,9 @@ declare module 'fns.js/esm' {
 
   function isString(value: any): boolean
   namespace isString {}
+
+  function chunk(array: Array<any>, size: number): any
+  namespace chunk {}
 
   function compact(array: Array<any>): any
   namespace compact {}
@@ -1155,6 +1194,11 @@ declare module 'fns.js/esm/isRegExp' {
 declare module 'fns.js/esm/isString' {
   import { isString } from 'fns.js/esm'
   export default isString
+}
+
+declare module 'fns.js/esm/chunk' {
+  import { chunk } from 'fns.js/esm'
+  export default chunk
 }
 
 declare module 'fns.js/esm/compact' {
@@ -1287,6 +1331,11 @@ declare module 'fns.js/esm/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/esm/chunk/index' {
+  import { chunk } from 'fns.js/esm'
+  export default chunk
+}
+
 declare module 'fns.js/esm/compact/index' {
   import { compact } from 'fns.js/esm'
   export default compact
@@ -1417,6 +1466,11 @@ declare module 'fns.js/esm/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/esm/chunk/index.js' {
+  import { chunk } from 'fns.js/esm'
+  export default chunk
+}
+
 declare module 'fns.js/esm/compact/index.js' {
   import { compact } from 'fns.js/esm'
   export default compact
@@ -1519,6 +1573,9 @@ declare module 'fns.js/esm/fp' {
 
   const isString: CurriedFn1<any, boolean>
   namespace isString {}
+
+  const chunk: CurriedFn2<number, Array<any>, any>
+  namespace chunk {}
 
   const compact: CurriedFn1<Array<any>, any>
   namespace compact {}
@@ -1629,6 +1686,11 @@ declare module 'fns.js/esm/fp/isRegExp' {
 declare module 'fns.js/esm/fp/isString' {
   import { isString } from 'fns.js/esm/fp'
   export default isString
+}
+
+declare module 'fns.js/esm/fp/chunk' {
+  import { chunk } from 'fns.js/esm/fp'
+  export default chunk
 }
 
 declare module 'fns.js/esm/fp/compact' {
@@ -1761,6 +1823,11 @@ declare module 'fns.js/esm/fp/isString/index' {
   export default isString
 }
 
+declare module 'fns.js/esm/fp/chunk/index' {
+  import { chunk } from 'fns.js/esm/fp'
+  export default chunk
+}
+
 declare module 'fns.js/esm/fp/compact/index' {
   import { compact } from 'fns.js/esm/fp'
   export default compact
@@ -1891,6 +1958,11 @@ declare module 'fns.js/esm/fp/isString/index.js' {
   export default isString
 }
 
+declare module 'fns.js/esm/fp/chunk/index.js' {
+  import { chunk } from 'fns.js/esm/fp'
+  export default chunk
+}
+
 declare module 'fns.js/esm/fp/compact/index.js' {
   import { compact } from 'fns.js/esm/fp'
   export default compact
@@ -1978,6 +2050,8 @@ interface dateFns {
   isRegExp(value: any): boolean
 
   isString(value: any): boolean
+
+  chunk(array: Array<any>, size: number): any
 
   compact(array: Array<any>): any
 
