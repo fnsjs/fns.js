@@ -24,7 +24,7 @@ function benchmarkJSONReporter() {
         var element = { fn: fnName }
 
         if (benchmarkResult[fnName]['fns.js']) {
-          element.dateFns = benchmarkResult[fnName]['fns.js']
+          element.fnsJS = benchmarkResult[fnName]['fns.js']
         }
 
         if (benchmarkResult[fnName]['lodash']) {

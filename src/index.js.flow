@@ -32,6 +32,8 @@ declare module.exports: {
 
   isString: (value: any) => boolean,
 
+  chunk: (array: Array<any>, size: number) => any,
+
   compact: (array: Array<any>) => any,
 
   filter: (

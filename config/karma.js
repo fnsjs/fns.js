@@ -162,6 +162,11 @@ function config(config) {
       : localLaunchers,
     browsers: getBrowsersConfig(),
     reporters: getReportersConfig(),
+    ...(process.env.TEST_BENCHMARK && {
+      concurrency: 1,
+      singleRun: true,
+      autoWatch: false,
+    }),
   })
 }
 

@@ -3,7 +3,7 @@
 # The script generates the package in the given directory.
 #
 # It's addition to the build process. The script is used in examples.
-# It also could be used to build date-fns from a git checkout.
+# It also could be used to build fns.js from a git checkout.
 
 set -e
 

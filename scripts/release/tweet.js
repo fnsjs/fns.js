@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The script posts a tweet as @date_fns about the release
+ * The script posts a tweet as @fns.js about the release
  * with a link to the change log entry.
  *
  * It's a part of the release process.
@@ -15,9 +15,7 @@ const formatDate = require('../../src/format')
 const zapierHookURL = `https://zapier.com/hooks/catch/${process.env.ZAPIER_TWEET_RELEASE_HOOK_ID}/`
 const tag =
   process.env.TRAVIS_TAG ||
-  execSync('git describe --abbrev=0 --tags')
-    .toString()
-    .trim()
+  execSync('git describe --abbrev=0 --tags').toString().trim()
 const formattedDate = formatDate(new Date(), 'YYYY-MM-DD')
 const changelogUrl = `https://fns.js.org/docs/Change-Log#${tag.replace(
   /^v/,
@@ -29,10 +27,10 @@ console.log('Posting release tweet...')
 fetch(zapierHookURL, {
   method: 'POST',
   body: JSON.stringify({
-    tweet: `fns.js ${tag} is published! See changelog: ${changelogUrl}.`
+    tweet: `fns.js ${tag} is published! See changelog: ${changelogUrl}.`,
   }),
-  headers: { 'Content-Type': 'application/json' }
-}).catch(err => {
+  headers: { 'Content-Type': 'application/json' },
+}).catch((err) => {
   console.error(err)
   process.exit(1)
 })
