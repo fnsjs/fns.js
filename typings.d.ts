@@ -2018,7 +2018,7 @@ declare module 'fns.js/esm/fp/isArrayLike/index.js' {
   export default isArrayLike
 }
 
-// dateFns Global Interface
+// fnsJS Global Interface
 
 interface dateFns {
   castArray(value: any): Array<any>

@@ -1,5 +1,4 @@
 import reduce from '../reduce'
-import isArray from '../isArray'
 
 /**
  * @name min
