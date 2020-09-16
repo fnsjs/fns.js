@@ -60,6 +60,12 @@ declare module.exports: {
     initialValue: any
   ) => any,
 
+  reduceRight: (
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ) => any,
+
   reverse: (array: any) => boolean,
 
   takeRight: (array: Array<any>, n?: number) => Array<any>,

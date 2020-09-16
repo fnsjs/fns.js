@@ -56,6 +56,7 @@ declare module.exports: {
   min: CurriedFn1<Array<any>, any>,
   pull: CurriedFn1<any, boolean>,
   reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>,
+  reduceRight: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>,
   reverse: CurriedFn1<any, boolean>,
   takeRight: CurriedFn2<number, Array<any>, Array<any>>,
   isArrayLike: CurriedFn1<any, boolean>,
