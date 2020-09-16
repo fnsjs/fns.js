@@ -115,6 +115,13 @@ declare module 'fns.js' {
   ): any
   namespace reduce {}
 
+  function reduceRight(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
+  namespace reduceRight {}
+
   function reverse(array: any): boolean
   namespace reverse {}
 
@@ -245,6 +252,11 @@ declare module 'fns.js/pull' {
 declare module 'fns.js/reduce' {
   import { reduce } from 'fns.js'
   export default reduce
+}
+
+declare module 'fns.js/reduceRight' {
+  import { reduceRight } from 'fns.js'
+  export default reduceRight
 }
 
 declare module 'fns.js/reverse' {
@@ -382,6 +394,11 @@ declare module 'fns.js/reduce/index' {
   export default reduce
 }
 
+declare module 'fns.js/reduceRight/index' {
+  import { reduceRight } from 'fns.js'
+  export default reduceRight
+}
+
 declare module 'fns.js/reverse/index' {
   import { reverse } from 'fns.js'
   export default reverse
@@ -517,6 +534,11 @@ declare module 'fns.js/reduce/index.js' {
   export default reduce
 }
 
+declare module 'fns.js/reduceRight/index.js' {
+  import { reduceRight } from 'fns.js'
+  export default reduceRight
+}
+
 declare module 'fns.js/reverse/index.js' {
   import { reverse } from 'fns.js'
   export default reverse
@@ -606,6 +628,14 @@ declare module 'fns.js/fp' {
 
   const reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>
   namespace reduce {}
+
+  const reduceRight: CurriedFn3<
+    any,
+    (...args: Array<any>) => any,
+    Array<any>,
+    any
+  >
+  namespace reduceRight {}
 
   const reverse: CurriedFn1<any, boolean>
   namespace reverse {}
@@ -737,6 +767,11 @@ declare module 'fns.js/fp/pull' {
 declare module 'fns.js/fp/reduce' {
   import { reduce } from 'fns.js/fp'
   export default reduce
+}
+
+declare module 'fns.js/fp/reduceRight' {
+  import { reduceRight } from 'fns.js/fp'
+  export default reduceRight
 }
 
 declare module 'fns.js/fp/reverse' {
@@ -874,6 +909,11 @@ declare module 'fns.js/fp/reduce/index' {
   export default reduce
 }
 
+declare module 'fns.js/fp/reduceRight/index' {
+  import { reduceRight } from 'fns.js/fp'
+  export default reduceRight
+}
+
 declare module 'fns.js/fp/reverse/index' {
   import { reverse } from 'fns.js/fp'
   export default reverse
@@ -1009,6 +1049,11 @@ declare module 'fns.js/fp/reduce/index.js' {
   export default reduce
 }
 
+declare module 'fns.js/fp/reduceRight/index.js' {
+  import { reduceRight } from 'fns.js/fp'
+  export default reduceRight
+}
+
 declare module 'fns.js/fp/reverse/index.js' {
   import { reverse } from 'fns.js/fp'
   export default reverse
@@ -1108,6 +1153,13 @@ declare module 'fns.js/esm' {
     initialValue: any
   ): any
   namespace reduce {}
+
+  function reduceRight(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
+  namespace reduceRight {}
 
   function reverse(array: any): boolean
   namespace reverse {}
@@ -1239,6 +1291,11 @@ declare module 'fns.js/esm/pull' {
 declare module 'fns.js/esm/reduce' {
   import { reduce } from 'fns.js/esm'
   export default reduce
+}
+
+declare module 'fns.js/esm/reduceRight' {
+  import { reduceRight } from 'fns.js/esm'
+  export default reduceRight
 }
 
 declare module 'fns.js/esm/reverse' {
@@ -1376,6 +1433,11 @@ declare module 'fns.js/esm/reduce/index' {
   export default reduce
 }
 
+declare module 'fns.js/esm/reduceRight/index' {
+  import { reduceRight } from 'fns.js/esm'
+  export default reduceRight
+}
+
 declare module 'fns.js/esm/reverse/index' {
   import { reverse } from 'fns.js/esm'
   export default reverse
@@ -1511,6 +1573,11 @@ declare module 'fns.js/esm/reduce/index.js' {
   export default reduce
 }
 
+declare module 'fns.js/esm/reduceRight/index.js' {
+  import { reduceRight } from 'fns.js/esm'
+  export default reduceRight
+}
+
 declare module 'fns.js/esm/reverse/index.js' {
   import { reverse } from 'fns.js/esm'
   export default reverse
@@ -1600,6 +1667,14 @@ declare module 'fns.js/esm/fp' {
 
   const reduce: CurriedFn3<any, (...args: Array<any>) => any, Array<any>, any>
   namespace reduce {}
+
+  const reduceRight: CurriedFn3<
+    any,
+    (...args: Array<any>) => any,
+    Array<any>,
+    any
+  >
+  namespace reduceRight {}
 
   const reverse: CurriedFn1<any, boolean>
   namespace reverse {}
@@ -1731,6 +1806,11 @@ declare module 'fns.js/esm/fp/pull' {
 declare module 'fns.js/esm/fp/reduce' {
   import { reduce } from 'fns.js/esm/fp'
   export default reduce
+}
+
+declare module 'fns.js/esm/fp/reduceRight' {
+  import { reduceRight } from 'fns.js/esm/fp'
+  export default reduceRight
 }
 
 declare module 'fns.js/esm/fp/reverse' {
@@ -1868,6 +1948,11 @@ declare module 'fns.js/esm/fp/reduce/index' {
   export default reduce
 }
 
+declare module 'fns.js/esm/fp/reduceRight/index' {
+  import { reduceRight } from 'fns.js/esm/fp'
+  export default reduceRight
+}
+
 declare module 'fns.js/esm/fp/reverse/index' {
   import { reverse } from 'fns.js/esm/fp'
   export default reverse
@@ -2003,6 +2088,11 @@ declare module 'fns.js/esm/fp/reduce/index.js' {
   export default reduce
 }
 
+declare module 'fns.js/esm/fp/reduceRight/index.js' {
+  import { reduceRight } from 'fns.js/esm/fp'
+  export default reduceRight
+}
+
 declare module 'fns.js/esm/fp/reverse/index.js' {
   import { reverse } from 'fns.js/esm/fp'
   export default reverse
@@ -2068,6 +2158,12 @@ interface dateFns {
   pull(array: any): boolean
 
   reduce(
+    array: Array<any>,
+    reducer: (...args: Array<any>) => any,
+    initialValue: any
+  ): any
+
+  reduceRight(
     array: Array<any>,
     reducer: (...args: Array<any>) => any,
     initialValue: any
