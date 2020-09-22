@@ -41,6 +41,8 @@ declare module.exports: {
     callback: (...args: Array<any>) => any
   ) => Array<any>,
 
+  indexOf: (array: any, searchElement: any, fromIndex: number) => number,
+
   last: (array: any) => boolean,
 
   map: (
@@ -70,7 +72,25 @@ declare module.exports: {
 
   takeRight: (array: Array<any>, n?: number) => Array<any>,
 
+  isSymbol: (value: any) => boolean,
+
+  toFinite: (value: any) => number,
+
+  toInteger: (value: any) => number,
+
+  toNumber: (value: any) => number,
+
   isArrayLike: (value: any) => boolean,
 
   MAX_SAFE_INTEGER: number,
+
+  NAN: number,
+
+  reTrim: object,
+
+  reIsBadHex: object,
+
+  reIsBinary: object,
+
+  reIsOctal: object,
 }
