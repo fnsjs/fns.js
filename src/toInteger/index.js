@@ -1,16 +1,16 @@
 import toFinite from '../toFinite'
 
 /**
+ * @name toInteger
+ * @category Number
+ * @summary Converts `value` to an integer.
+ *
+ * @description
  * Converts `value` to an integer.
  *
- * **Note:** This method is loosely based on
- * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
- *
- * @since 4.0.0
- * @category Lang
  * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
- * @see isInteger, isNumber, toNumber
+ * @returns {Number} Returns the converted integer.
+ *
  * @example
  *
  * toInteger(3.2)

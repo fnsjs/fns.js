@@ -1,32 +1,17 @@
 import isObject from '../isObject'
 import isSymbol from '../isSymbol'
-
-/** Used as references for various `Number` constants. */
-const NAN = 0 / 0
-
-/** Used to match leading and trailing whitespace. */
-const reTrim = /^\s+|\s+$/g
-
-/** Used to detect bad signed hexadecimal string values. */
-const reIsBadHex = /^[-+]0x[0-9a-f]+$/i
-
-/** Used to detect binary string values. */
-const reIsBinary = /^0b[01]+$/i
-
-/** Used to detect octal string values. */
-const reIsOctal = /^0o[0-7]+$/i
-
-/** Built-in method references without a dependency on `root`. */
-const freeParseInt = parseInt
+import { NAN, reIsBadHex, reIsBinary, reIsOctal, reTrim } from '../constants'
 
 /**
+ * @name toNumber
+ * @category Number
+ * @summary Converts `value` to a number.
+ *
+ * @description
  * Converts `value` to a number.
  *
- * @since 4.0.0
- * @category Lang
  * @param {*} value The value to process.
- * @returns {number} Returns the number.
- * @see isInteger, toInteger, isNumber
+ * @returns {Number} Returns the number.
  * @example
  *
  * toNumber(3.2)
@@ -58,7 +43,7 @@ function toNumber(value) {
   value = value.replace(reTrim, '')
   const isBinary = reIsBinary.test(value)
   return isBinary || reIsOctal.test(value)
-    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    ? parseInt(value.slice(2), isBinary ? 2 : 8)
     : reIsBadHex.test(value)
     ? NAN
     : +value

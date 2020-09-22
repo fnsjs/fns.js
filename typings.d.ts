@@ -90,6 +90,9 @@ declare module 'fns.js' {
   ): Array<any>
   namespace filter {}
 
+  function indexOf(array: any, searchElement: any, fromIndex: number): number
+  namespace indexOf {}
+
   function last(array: any): boolean
   namespace last {}
 
@@ -128,10 +131,32 @@ declare module 'fns.js' {
   function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
+  function isSymbol(value: any): boolean
+  namespace isSymbol {}
+
+  function toFinite(value: any): number
+  namespace toFinite {}
+
+  function toInteger(value: any): number
+  namespace toInteger {}
+
+  function toNumber(value: any): number
+  namespace toNumber {}
+
   function isArrayLike(value: any): boolean
   namespace isArrayLike {}
 
   const MAX_SAFE_INTEGER: number
+
+  const NAN: number
+
+  const reTrim: object
+
+  const reIsBadHex: object
+
+  const reIsBinary: object
+
+  const reIsOctal: object
 }
 
 declare module 'fns.js/castArray' {
@@ -224,6 +249,11 @@ declare module 'fns.js/filter' {
   export default filter
 }
 
+declare module 'fns.js/indexOf' {
+  import { indexOf } from 'fns.js'
+  export default indexOf
+}
+
 declare module 'fns.js/last' {
   import { last } from 'fns.js'
   export default last
@@ -267,6 +297,26 @@ declare module 'fns.js/reverse' {
 declare module 'fns.js/takeRight' {
   import { takeRight } from 'fns.js'
   export default takeRight
+}
+
+declare module 'fns.js/isSymbol' {
+  import { isSymbol } from 'fns.js'
+  export default isSymbol
+}
+
+declare module 'fns.js/toFinite' {
+  import { toFinite } from 'fns.js'
+  export default toFinite
+}
+
+declare module 'fns.js/toInteger' {
+  import { toInteger } from 'fns.js'
+  export default toInteger
+}
+
+declare module 'fns.js/toNumber' {
+  import { toNumber } from 'fns.js'
+  export default toNumber
 }
 
 declare module 'fns.js/isArrayLike' {
@@ -364,6 +414,11 @@ declare module 'fns.js/filter/index' {
   export default filter
 }
 
+declare module 'fns.js/indexOf/index' {
+  import { indexOf } from 'fns.js'
+  export default indexOf
+}
+
 declare module 'fns.js/last/index' {
   import { last } from 'fns.js'
   export default last
@@ -407,6 +462,26 @@ declare module 'fns.js/reverse/index' {
 declare module 'fns.js/takeRight/index' {
   import { takeRight } from 'fns.js'
   export default takeRight
+}
+
+declare module 'fns.js/isSymbol/index' {
+  import { isSymbol } from 'fns.js'
+  export default isSymbol
+}
+
+declare module 'fns.js/toFinite/index' {
+  import { toFinite } from 'fns.js'
+  export default toFinite
+}
+
+declare module 'fns.js/toInteger/index' {
+  import { toInteger } from 'fns.js'
+  export default toInteger
+}
+
+declare module 'fns.js/toNumber/index' {
+  import { toNumber } from 'fns.js'
+  export default toNumber
 }
 
 declare module 'fns.js/isArrayLike/index' {
@@ -504,6 +579,11 @@ declare module 'fns.js/filter/index.js' {
   export default filter
 }
 
+declare module 'fns.js/indexOf/index.js' {
+  import { indexOf } from 'fns.js'
+  export default indexOf
+}
+
 declare module 'fns.js/last/index.js' {
   import { last } from 'fns.js'
   export default last
@@ -547,6 +627,26 @@ declare module 'fns.js/reverse/index.js' {
 declare module 'fns.js/takeRight/index.js' {
   import { takeRight } from 'fns.js'
   export default takeRight
+}
+
+declare module 'fns.js/isSymbol/index.js' {
+  import { isSymbol } from 'fns.js'
+  export default isSymbol
+}
+
+declare module 'fns.js/toFinite/index.js' {
+  import { toFinite } from 'fns.js'
+  export default toFinite
+}
+
+declare module 'fns.js/toInteger/index.js' {
+  import { toInteger } from 'fns.js'
+  export default toInteger
+}
+
+declare module 'fns.js/toNumber/index.js' {
+  import { toNumber } from 'fns.js'
+  export default toNumber
 }
 
 declare module 'fns.js/isArrayLike/index.js' {
@@ -611,6 +711,9 @@ declare module 'fns.js/fp' {
   const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
   namespace filter {}
 
+  const indexOf: CurriedFn3<number, any, any, number>
+  namespace indexOf {}
+
   const last: CurriedFn1<any, boolean>
   namespace last {}
 
@@ -643,10 +746,32 @@ declare module 'fns.js/fp' {
   const takeRight: CurriedFn2<number, Array<any>, Array<any>>
   namespace takeRight {}
 
+  const isSymbol: CurriedFn1<any, boolean>
+  namespace isSymbol {}
+
+  const toFinite: CurriedFn1<any, number>
+  namespace toFinite {}
+
+  const toInteger: CurriedFn1<any, number>
+  namespace toInteger {}
+
+  const toNumber: CurriedFn1<any, number>
+  namespace toNumber {}
+
   const isArrayLike: CurriedFn1<any, boolean>
   namespace isArrayLike {}
 
   const MAX_SAFE_INTEGER: number
+
+  const NAN: number
+
+  const reTrim: object
+
+  const reIsBadHex: object
+
+  const reIsBinary: object
+
+  const reIsOctal: object
 }
 
 declare module 'fns.js/fp/castArray' {
@@ -739,6 +864,11 @@ declare module 'fns.js/fp/filter' {
   export default filter
 }
 
+declare module 'fns.js/fp/indexOf' {
+  import { indexOf } from 'fns.js/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/fp/last' {
   import { last } from 'fns.js/fp'
   export default last
@@ -782,6 +912,26 @@ declare module 'fns.js/fp/reverse' {
 declare module 'fns.js/fp/takeRight' {
   import { takeRight } from 'fns.js/fp'
   export default takeRight
+}
+
+declare module 'fns.js/fp/isSymbol' {
+  import { isSymbol } from 'fns.js/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/fp/toFinite' {
+  import { toFinite } from 'fns.js/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/fp/toInteger' {
+  import { toInteger } from 'fns.js/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/fp/toNumber' {
+  import { toNumber } from 'fns.js/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/fp/isArrayLike' {
@@ -879,6 +1029,11 @@ declare module 'fns.js/fp/filter/index' {
   export default filter
 }
 
+declare module 'fns.js/fp/indexOf/index' {
+  import { indexOf } from 'fns.js/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/fp/last/index' {
   import { last } from 'fns.js/fp'
   export default last
@@ -922,6 +1077,26 @@ declare module 'fns.js/fp/reverse/index' {
 declare module 'fns.js/fp/takeRight/index' {
   import { takeRight } from 'fns.js/fp'
   export default takeRight
+}
+
+declare module 'fns.js/fp/isSymbol/index' {
+  import { isSymbol } from 'fns.js/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/fp/toFinite/index' {
+  import { toFinite } from 'fns.js/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/fp/toInteger/index' {
+  import { toInteger } from 'fns.js/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/fp/toNumber/index' {
+  import { toNumber } from 'fns.js/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/fp/isArrayLike/index' {
@@ -1019,6 +1194,11 @@ declare module 'fns.js/fp/filter/index.js' {
   export default filter
 }
 
+declare module 'fns.js/fp/indexOf/index.js' {
+  import { indexOf } from 'fns.js/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/fp/last/index.js' {
   import { last } from 'fns.js/fp'
   export default last
@@ -1062,6 +1242,26 @@ declare module 'fns.js/fp/reverse/index.js' {
 declare module 'fns.js/fp/takeRight/index.js' {
   import { takeRight } from 'fns.js/fp'
   export default takeRight
+}
+
+declare module 'fns.js/fp/isSymbol/index.js' {
+  import { isSymbol } from 'fns.js/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/fp/toFinite/index.js' {
+  import { toFinite } from 'fns.js/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/fp/toInteger/index.js' {
+  import { toInteger } from 'fns.js/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/fp/toNumber/index.js' {
+  import { toNumber } from 'fns.js/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/fp/isArrayLike/index.js' {
@@ -1129,6 +1329,9 @@ declare module 'fns.js/esm' {
   ): Array<any>
   namespace filter {}
 
+  function indexOf(array: any, searchElement: any, fromIndex: number): number
+  namespace indexOf {}
+
   function last(array: any): boolean
   namespace last {}
 
@@ -1167,10 +1370,32 @@ declare module 'fns.js/esm' {
   function takeRight(array: Array<any>, n?: number): Array<any>
   namespace takeRight {}
 
+  function isSymbol(value: any): boolean
+  namespace isSymbol {}
+
+  function toFinite(value: any): number
+  namespace toFinite {}
+
+  function toInteger(value: any): number
+  namespace toInteger {}
+
+  function toNumber(value: any): number
+  namespace toNumber {}
+
   function isArrayLike(value: any): boolean
   namespace isArrayLike {}
 
   const MAX_SAFE_INTEGER: number
+
+  const NAN: number
+
+  const reTrim: object
+
+  const reIsBadHex: object
+
+  const reIsBinary: object
+
+  const reIsOctal: object
 }
 
 declare module 'fns.js/esm/castArray' {
@@ -1263,6 +1488,11 @@ declare module 'fns.js/esm/filter' {
   export default filter
 }
 
+declare module 'fns.js/esm/indexOf' {
+  import { indexOf } from 'fns.js/esm'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/last' {
   import { last } from 'fns.js/esm'
   export default last
@@ -1306,6 +1536,26 @@ declare module 'fns.js/esm/reverse' {
 declare module 'fns.js/esm/takeRight' {
   import { takeRight } from 'fns.js/esm'
   export default takeRight
+}
+
+declare module 'fns.js/esm/isSymbol' {
+  import { isSymbol } from 'fns.js/esm'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/toFinite' {
+  import { toFinite } from 'fns.js/esm'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/toInteger' {
+  import { toInteger } from 'fns.js/esm'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/toNumber' {
+  import { toNumber } from 'fns.js/esm'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/isArrayLike' {
@@ -1403,6 +1653,11 @@ declare module 'fns.js/esm/filter/index' {
   export default filter
 }
 
+declare module 'fns.js/esm/indexOf/index' {
+  import { indexOf } from 'fns.js/esm'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/last/index' {
   import { last } from 'fns.js/esm'
   export default last
@@ -1446,6 +1701,26 @@ declare module 'fns.js/esm/reverse/index' {
 declare module 'fns.js/esm/takeRight/index' {
   import { takeRight } from 'fns.js/esm'
   export default takeRight
+}
+
+declare module 'fns.js/esm/isSymbol/index' {
+  import { isSymbol } from 'fns.js/esm'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/toFinite/index' {
+  import { toFinite } from 'fns.js/esm'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/toInteger/index' {
+  import { toInteger } from 'fns.js/esm'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/toNumber/index' {
+  import { toNumber } from 'fns.js/esm'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/isArrayLike/index' {
@@ -1543,6 +1818,11 @@ declare module 'fns.js/esm/filter/index.js' {
   export default filter
 }
 
+declare module 'fns.js/esm/indexOf/index.js' {
+  import { indexOf } from 'fns.js/esm'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/last/index.js' {
   import { last } from 'fns.js/esm'
   export default last
@@ -1586,6 +1866,26 @@ declare module 'fns.js/esm/reverse/index.js' {
 declare module 'fns.js/esm/takeRight/index.js' {
   import { takeRight } from 'fns.js/esm'
   export default takeRight
+}
+
+declare module 'fns.js/esm/isSymbol/index.js' {
+  import { isSymbol } from 'fns.js/esm'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/toFinite/index.js' {
+  import { toFinite } from 'fns.js/esm'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/toInteger/index.js' {
+  import { toInteger } from 'fns.js/esm'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/toNumber/index.js' {
+  import { toNumber } from 'fns.js/esm'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/isArrayLike/index.js' {
@@ -1650,6 +1950,9 @@ declare module 'fns.js/esm/fp' {
   const filter: CurriedFn2<(...args: Array<any>) => any, Array<any>, Array<any>>
   namespace filter {}
 
+  const indexOf: CurriedFn3<number, any, any, number>
+  namespace indexOf {}
+
   const last: CurriedFn1<any, boolean>
   namespace last {}
 
@@ -1682,10 +1985,32 @@ declare module 'fns.js/esm/fp' {
   const takeRight: CurriedFn2<number, Array<any>, Array<any>>
   namespace takeRight {}
 
+  const isSymbol: CurriedFn1<any, boolean>
+  namespace isSymbol {}
+
+  const toFinite: CurriedFn1<any, number>
+  namespace toFinite {}
+
+  const toInteger: CurriedFn1<any, number>
+  namespace toInteger {}
+
+  const toNumber: CurriedFn1<any, number>
+  namespace toNumber {}
+
   const isArrayLike: CurriedFn1<any, boolean>
   namespace isArrayLike {}
 
   const MAX_SAFE_INTEGER: number
+
+  const NAN: number
+
+  const reTrim: object
+
+  const reIsBadHex: object
+
+  const reIsBinary: object
+
+  const reIsOctal: object
 }
 
 declare module 'fns.js/esm/fp/castArray' {
@@ -1778,6 +2103,11 @@ declare module 'fns.js/esm/fp/filter' {
   export default filter
 }
 
+declare module 'fns.js/esm/fp/indexOf' {
+  import { indexOf } from 'fns.js/esm/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/fp/last' {
   import { last } from 'fns.js/esm/fp'
   export default last
@@ -1821,6 +2151,26 @@ declare module 'fns.js/esm/fp/reverse' {
 declare module 'fns.js/esm/fp/takeRight' {
   import { takeRight } from 'fns.js/esm/fp'
   export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isSymbol' {
+  import { isSymbol } from 'fns.js/esm/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/fp/toFinite' {
+  import { toFinite } from 'fns.js/esm/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/fp/toInteger' {
+  import { toInteger } from 'fns.js/esm/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/fp/toNumber' {
+  import { toNumber } from 'fns.js/esm/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/fp/isArrayLike' {
@@ -1918,6 +2268,11 @@ declare module 'fns.js/esm/fp/filter/index' {
   export default filter
 }
 
+declare module 'fns.js/esm/fp/indexOf/index' {
+  import { indexOf } from 'fns.js/esm/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/fp/last/index' {
   import { last } from 'fns.js/esm/fp'
   export default last
@@ -1961,6 +2316,26 @@ declare module 'fns.js/esm/fp/reverse/index' {
 declare module 'fns.js/esm/fp/takeRight/index' {
   import { takeRight } from 'fns.js/esm/fp'
   export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isSymbol/index' {
+  import { isSymbol } from 'fns.js/esm/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/fp/toFinite/index' {
+  import { toFinite } from 'fns.js/esm/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/fp/toInteger/index' {
+  import { toInteger } from 'fns.js/esm/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/fp/toNumber/index' {
+  import { toNumber } from 'fns.js/esm/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/fp/isArrayLike/index' {
@@ -2058,6 +2433,11 @@ declare module 'fns.js/esm/fp/filter/index.js' {
   export default filter
 }
 
+declare module 'fns.js/esm/fp/indexOf/index.js' {
+  import { indexOf } from 'fns.js/esm/fp'
+  export default indexOf
+}
+
 declare module 'fns.js/esm/fp/last/index.js' {
   import { last } from 'fns.js/esm/fp'
   export default last
@@ -2101,6 +2481,26 @@ declare module 'fns.js/esm/fp/reverse/index.js' {
 declare module 'fns.js/esm/fp/takeRight/index.js' {
   import { takeRight } from 'fns.js/esm/fp'
   export default takeRight
+}
+
+declare module 'fns.js/esm/fp/isSymbol/index.js' {
+  import { isSymbol } from 'fns.js/esm/fp'
+  export default isSymbol
+}
+
+declare module 'fns.js/esm/fp/toFinite/index.js' {
+  import { toFinite } from 'fns.js/esm/fp'
+  export default toFinite
+}
+
+declare module 'fns.js/esm/fp/toInteger/index.js' {
+  import { toInteger } from 'fns.js/esm/fp'
+  export default toInteger
+}
+
+declare module 'fns.js/esm/fp/toNumber/index.js' {
+  import { toNumber } from 'fns.js/esm/fp'
+  export default toNumber
 }
 
 declare module 'fns.js/esm/fp/isArrayLike/index.js' {
@@ -2147,6 +2547,8 @@ interface dateFns {
 
   filter(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
 
+  indexOf(array: any, searchElement: any, fromIndex: number): number
+
   last(array: any): boolean
 
   map(array: Array<any>, callback: (...args: Array<any>) => any): Array<any>
@@ -2173,7 +2575,25 @@ interface dateFns {
 
   takeRight(array: Array<any>, n?: number): Array<any>
 
+  isSymbol(value: any): boolean
+
+  toFinite(value: any): number
+
+  toInteger(value: any): number
+
+  toNumber(value: any): number
+
   isArrayLike(value: any): boolean
 
   MAX_SAFE_INTEGER: number
+
+  NAN: number
+
+  reTrim: object
+
+  reIsBadHex: object
+
+  reIsBinary: object
+
+  reIsOctal: object
 }
