@@ -1,5 +1,6 @@
+// jest.config.js
 module.exports = {
-  verbose: false,
-  setupFiles: ['jest-plugin-context/setup'],
-  testPathIgnorePatterns: ['<rootDir>/test.js']
-}
+  coverageDirectory: './coverage/',
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.ts','!src/**/benchmark.ts']
+};

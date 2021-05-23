@@ -1,12 +1,9 @@
 module.exports = {
-  extends: ['eslint:recommended', 'prettier'],
-  parser: 'babel-eslint',
-  env: {
-    browser: true,
-    node: true,
-    es6: true
-  },
+  extends: [
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
   rules: {
-    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
-  }
-}
+    'no-self-compare': 'off',
+  },
+};
