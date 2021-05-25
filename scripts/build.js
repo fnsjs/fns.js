@@ -2,9 +2,9 @@ const { readdirSync, writeFileSync } = require('fs');
 const path = require('path');
 const DONT_CHANGE_MESSAGE = `// This file is generated automatically by \`build:prepare\`. Please, don't change it.\n`;
 
-const generateIndex = source => {
+const generateIndex = (source) => {
   const exports = readdirSync(source, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
+    .filter((dirent) => dirent.isDirectory())
     .map(({ name }) => {
       if (!/^\./.test(name)) {
         return `export { default as ${name} } from './${name}';`;
